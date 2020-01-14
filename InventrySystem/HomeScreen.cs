@@ -58,5 +58,17 @@ namespace InventrySystem
             Stocks s = new Stocks();
             MainClass.showWindow(s, this, MDI.ActiveForm);
         }
+
+        private void SalesBtn_Click(object sender, EventArgs e)
+        {
+            Sales s = new Sales();
+            MainClass.showWindow(s, this, MDI.ActiveForm);
+        }
+
+        private void proPricingBtn_Click(object sender, EventArgs e)
+        {
+            ProductPricing p = new ProductPricing();
+            MainClass.showWindow(p, this, MDI.ActiveForm);
+        }
     }
 }

@@ -19,3 +19,5 @@ D:\ProjectWork\InventrySystem\InventrySystem\obj\Debug\InventrySystem.PurchaseIn
 D:\ProjectWork\InventrySystem\InventrySystem\obj\Debug\InventrySystem.Suppliers.resources
 D:\ProjectWork\InventrySystem\InventrySystem\obj\Debug\InventrySystem.PurchaseInvoiceDetails.resources
 D:\ProjectWork\InventrySystem\InventrySystem\obj\Debug\InventrySystem.Stocks.resources
+D:\ProjectWork\InventrySystem\InventrySystem\obj\Debug\InventrySystem.Sales.resources
+D:\ProjectWork\InventrySystem\InventrySystem\obj\Debug\InventrySystem.ProductPricing.resources

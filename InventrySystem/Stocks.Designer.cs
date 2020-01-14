@@ -30,12 +30,15 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.StockdataGridView = new System.Windows.Forms.DataGridView();
             this.ProductIDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BarcodeGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExpiryGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PriceGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BuyPriceGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SellPriceGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CategoryGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StockGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,7 +86,8 @@
             this.NameGV,
             this.BarcodeGV,
             this.ExpiryGV,
-            this.PriceGV,
+            this.BuyPriceGV,
+            this.SellPriceGV,
             this.CategoryGV,
             this.StockGV,
             this.TotGV,
@@ -128,15 +132,25 @@
             this.ExpiryGV.Name = "ExpiryGV";
             this.ExpiryGV.ReadOnly = true;
             // 
-            // PriceGV
+            // BuyPriceGV
             // 
             dataGridViewCellStyle2.Format = "N2";
             dataGridViewCellStyle2.NullValue = "0";
-            this.PriceGV.DefaultCellStyle = dataGridViewCellStyle2;
-            this.PriceGV.HeaderText = "Price";
-            this.PriceGV.MinimumWidth = 6;
-            this.PriceGV.Name = "PriceGV";
-            this.PriceGV.ReadOnly = true;
+            this.BuyPriceGV.DefaultCellStyle = dataGridViewCellStyle2;
+            this.BuyPriceGV.HeaderText = "Buying Price";
+            this.BuyPriceGV.MinimumWidth = 6;
+            this.BuyPriceGV.Name = "BuyPriceGV";
+            this.BuyPriceGV.ReadOnly = true;
+            // 
+            // SellPriceGV
+            // 
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.SellPriceGV.DefaultCellStyle = dataGridViewCellStyle3;
+            this.SellPriceGV.HeaderText = "Selling Price";
+            this.SellPriceGV.MinimumWidth = 6;
+            this.SellPriceGV.Name = "SellPriceGV";
+            this.SellPriceGV.ReadOnly = true;
             // 
             // CategoryGV
             // 
@@ -154,6 +168,9 @@
             // 
             // TotGV
             // 
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.TotGV.DefaultCellStyle = dataGridViewCellStyle4;
             this.TotGV.HeaderText = "Total Amount";
             this.TotGV.MinimumWidth = 6;
             this.TotGV.Name = "TotGV";
@@ -190,7 +207,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NameGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn BarcodeGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn ExpiryGV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PriceGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BuyPriceGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SellPriceGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn CategoryGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn StockGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotGV;

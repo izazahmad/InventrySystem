@@ -82,14 +82,6 @@ namespace InventrySystem
                 ExpiryErrorLbl.Visible = false;
             }
             
-            if (priceTxt.Text == "")
-            {
-                priceErrorLbl.Visible = true;
-            }
-            else
-            {
-                priceErrorLbl.Visible = false;
-            }
             if (categoryCB.SelectedIndex == -1 || categoryCB.SelectedIndex==0)
             {
                 CategoryErrorLbl.Visible = true;
@@ -100,7 +92,7 @@ namespace InventrySystem
             }
             
 
-            if (productErrorLbl.Visible || barcodeErrorLbl.Visible || priceErrorLbl.Visible || CategoryErrorLbl.Visible)
+            if (productErrorLbl.Visible || barcodeErrorLbl.Visible  || CategoryErrorLbl.Visible)
             {
                 MainClass.ShowMSG("fields with * are mandatory", "stop", "Error");//Error is the type of message
             }
@@ -113,16 +105,16 @@ namespace InventrySystem
                     Insertion i = new Insertion();
                     if(ExpiryPicker.Value.Date==DateTime.Now.Date)
                     {
-                        i.insertProduct(ProductTxt.Text, barcodeTxt.Text, Convert.ToSingle(priceTxt.Text),  Convert.ToInt32(categoryCB.SelectedValue));
+                        i.insertProduct(ProductTxt.Text, barcodeTxt.Text,  Convert.ToInt32(categoryCB.SelectedValue));
 
                     }
                     else
                     {
-                        i.insertProduct(ProductTxt.Text, barcodeTxt.Text, Convert.ToSingle(priceTxt.Text), Convert.ToInt32(categoryCB.SelectedValue), ExpiryPicker.Value);
+                        i.insertProduct(ProductTxt.Text, barcodeTxt.Text, Convert.ToInt32(categoryCB.SelectedValue), ExpiryPicker.Value);
 
                     }
 
-                    r.showProduct(ProductdataGridView, ProductIDGV, NameGV, BarcodeGV, ExpiryGV, PriceGV, CategoryGV, CategoryIDGV);
+                    r.showProduct(ProductdataGridView, ProductIDGV, NameGV, BarcodeGV, ExpiryGV, CategoryGV, CategoryIDGV);
                     MainClass.disable_reset(leftPanel);
 
                 }
@@ -134,15 +126,15 @@ namespace InventrySystem
                         Updation u = new Updation();
                         if (ExpiryPicker.Value.Date == DateTime.Now.Date)
                         {
-                            u.updateProduct(proID, ProductTxt.Text, barcodeTxt.Text, Convert.ToSingle(priceTxt.Text), Convert.ToInt32(categoryCB.SelectedValue));
+                            u.updateProduct(proID, ProductTxt.Text, barcodeTxt.Text, Convert.ToInt32(categoryCB.SelectedValue));
 
                         }
                         else
                         {
-                            u.updateProduct(proID, ProductTxt.Text, barcodeTxt.Text, Convert.ToSingle(priceTxt.Text), Convert.ToInt32(categoryCB.SelectedValue), ExpiryPicker.Value);
+                            u.updateProduct(proID, ProductTxt.Text, barcodeTxt.Text, Convert.ToInt32(categoryCB.SelectedValue), ExpiryPicker.Value);
 
                         }
-                        r.showProduct(ProductdataGridView, ProductIDGV, NameGV, BarcodeGV, ExpiryGV, PriceGV, CategoryGV, CategoryIDGV);
+                        r.showProduct(ProductdataGridView, ProductIDGV, NameGV, BarcodeGV, ExpiryGV, CategoryGV, CategoryIDGV);
                         MainClass.disable_reset(leftPanel);
                     }
 
@@ -160,7 +152,7 @@ namespace InventrySystem
                 {
                     Deletion d = new Deletion();
                     d.delete(proID, "st_deleteProduct", "@id");
-                    r.showProduct(ProductdataGridView, ProductIDGV, NameGV, BarcodeGV, ExpiryGV, PriceGV, CategoryGV, CategoryIDGV);
+                    r.showProduct(ProductdataGridView, ProductIDGV, NameGV, BarcodeGV, ExpiryGV, CategoryGV, CategoryIDGV);
           
                 }
 
@@ -171,12 +163,12 @@ namespace InventrySystem
         {
             if (SearchTxt.Text != "")
             {
-                r.showProduct(ProductdataGridView, ProductIDGV, NameGV, BarcodeGV, ExpiryGV, PriceGV, CategoryGV, CategoryIDGV, SearchTxt.Text);
+                r.showProduct(ProductdataGridView, ProductIDGV, NameGV, BarcodeGV, ExpiryGV, CategoryGV, CategoryIDGV, SearchTxt.Text);
 
             }
             else
             {
-                r.showProduct(ProductdataGridView, ProductIDGV, NameGV, BarcodeGV, ExpiryGV, PriceGV, CategoryGV, CategoryIDGV);
+                r.showProduct(ProductdataGridView, ProductIDGV, NameGV, BarcodeGV, ExpiryGV,CategoryGV, CategoryIDGV);
 
             }
         }
@@ -185,7 +177,7 @@ namespace InventrySystem
 
         public override void ViewBtn_Click(object sender, EventArgs e)
         {
-            r.showProduct(ProductdataGridView, ProductIDGV, NameGV, BarcodeGV, ExpiryGV, PriceGV, CategoryGV, CategoryIDGV);
+            r.showProduct(ProductdataGridView, ProductIDGV, NameGV, BarcodeGV, ExpiryGV, CategoryGV, CategoryIDGV);
 
         }
 
@@ -207,7 +199,6 @@ namespace InventrySystem
                     ExpiryPicker.Value = Convert.ToDateTime(row.Cells["ExpiryGV"].Value.ToString());
 
                 }
-                priceTxt.Text = row.Cells["PriceGV"].Value.ToString();
                 categoryCB.SelectedValue = row.Cells["CategoryIDGV"].Value.ToString();
                 MainClass.disable(leftPanel);
 

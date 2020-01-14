@@ -36,6 +36,7 @@
             this.productBtn = new System.Windows.Forms.Button();
             this.userBtn = new System.Windows.Forms.Button();
             this.CatogoryBtn = new System.Windows.Forms.Button();
+            this.proPricingBtn = new System.Windows.Forms.Button();
             this.leftPanel.SuspendLayout();
             this.rightPanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -81,6 +82,7 @@
             this.tableLayoutPanel1.Controls.Add(this.productBtn, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.userBtn, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.CatogoryBtn, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.proPricingBtn, 2, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 80);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -119,6 +121,7 @@
             this.SalesBtn.TabIndex = 4;
             this.SalesBtn.Text = "Sales";
             this.SalesBtn.UseVisualStyleBackColor = true;
+            this.SalesBtn.Click += new System.EventHandler(this.SalesBtn_Click);
             // 
             // PurchaseInvoiceBtn
             // 
@@ -190,6 +193,20 @@
             this.CatogoryBtn.UseVisualStyleBackColor = true;
             this.CatogoryBtn.Click += new System.EventHandler(this.CatogoryBtn_Click);
             // 
+            // proPricingBtn
+            // 
+            this.proPricingBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.proPricingBtn.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.proPricingBtn.FlatAppearance.BorderSize = 2;
+            this.proPricingBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.proPricingBtn.Location = new System.Drawing.Point(587, 130);
+            this.proPricingBtn.Name = "proPricingBtn";
+            this.proPricingBtn.Size = new System.Drawing.Size(286, 121);
+            this.proPricingBtn.TabIndex = 8;
+            this.proPricingBtn.Text = "Product Price";
+            this.proPricingBtn.UseVisualStyleBackColor = true;
+            this.proPricingBtn.Click += new System.EventHandler(this.proPricingBtn_Click);
+            // 
             // HomeScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -216,5 +233,6 @@
         private System.Windows.Forms.Button userBtn;
         private System.Windows.Forms.Button CatogoryBtn;
         private System.Windows.Forms.Button SupplierBtn;
+        private System.Windows.Forms.Button proPricingBtn;
     }
 }

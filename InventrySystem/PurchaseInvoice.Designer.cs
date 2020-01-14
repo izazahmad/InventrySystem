@@ -62,10 +62,15 @@
             this.leftPanel.SuspendLayout();
             this.rightPanel.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PurchasedataGridView)).BeginInit();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // backBtn
+            // 
+            this.backBtn.FlatAppearance.BorderSize = 0;
             // 
             // leftPanel
             // 
@@ -165,6 +170,7 @@
             this.BarcodeTxt.Size = new System.Drawing.Size(255, 27);
             this.BarcodeTxt.TabIndex = 1;
             this.BarcodeTxt.TextChanged += new System.EventHandler(this.BarcodeTxt_TextChanged);
+            this.BarcodeTxt.Validating += new System.ComponentModel.CancelEventHandler(this.BarcodeTxt_Validating);
             this.BarcodeTxt.Validated += new System.EventHandler(this.BarcodeTxt_Validated);
             // 
             // ProductTxt
@@ -197,6 +203,7 @@
             this.PerUnitTxt.Name = "PerUnitTxt";
             this.PerUnitTxt.Size = new System.Drawing.Size(255, 27);
             this.PerUnitTxt.TabIndex = 3;
+            this.PerUnitTxt.TextChanged += new System.EventHandler(this.PerUnitTxt_TextChanged);
             // 
             // label6
             // 
@@ -441,6 +448,7 @@
             this.leftPanel.PerformLayout();
             this.rightPanel.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PurchasedataGridView)).EndInit();
             this.panel5.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

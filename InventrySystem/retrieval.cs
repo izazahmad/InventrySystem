@@ -11,7 +11,6 @@ namespace InventrySystem
 {
     class retrieval
     {
-        private string[] productData= new string[4];
         public void showUsers(DataGridView gv,DataGridViewColumn userIDGV, DataGridViewColumn nameGV, DataGridViewColumn usernameGV, DataGridViewColumn passGV, DataGridViewColumn emailGV, DataGridViewColumn phoneGV, DataGridViewColumn statusGV,string data=null)
         {
             try
@@ -159,7 +158,7 @@ namespace InventrySystem
                 MainClass.ShowMSG(ex.Message, "Error", "Error");
             }
         }
-        public void showProduct(DataGridView gv, DataGridViewColumn ProductIDGV, DataGridViewColumn NameGV, DataGridViewColumn BarcodeGV, DataGridViewColumn ExpiryGV, DataGridViewColumn PriceGV, DataGridViewColumn CategoryGV, DataGridViewColumn CategoryIDGV, string data=null)
+        public void showProduct(DataGridView gv, DataGridViewColumn ProductIDGV, DataGridViewColumn NameGV, DataGridViewColumn BarcodeGV, DataGridViewColumn ExpiryGV, DataGridViewColumn CategoryGV, DataGridViewColumn CategoryIDGV, string data=null)
         {
             try
             {
@@ -183,7 +182,6 @@ namespace InventrySystem
                 NameGV.DataPropertyName = dt.Columns["Name"].ToString();
                 BarcodeGV.DataPropertyName = dt.Columns["Barcode"].ToString();
                 ExpiryGV.DataPropertyName = dt.Columns["Expdate"].ToString();
-                PriceGV.DataPropertyName = dt.Columns["Price"].ToString();
                 CategoryGV.DataPropertyName = dt.Columns["Category"].ToString();
                 CategoryIDGV.DataPropertyName = dt.Columns["CategoryId"].ToString();
                 gv.DataSource = dt;
@@ -347,6 +345,7 @@ namespace InventrySystem
                 MainClass.ShowMSG(ex.Message, "Error...", "Error");
             }
         }
+        private string[] productData = new string[3];
         public string[] getProductByBarcodeList(string barcode)
         {
             try
@@ -364,7 +363,7 @@ namespace InventrySystem
                         productData[0] = dr[0].ToString();
                         productData[1] = dr[1].ToString();
                         productData[2] = dr[2].ToString();
-                        productData[3] = dr[3].ToString();
+                        
                     }
                 }
                 //else
@@ -380,7 +379,7 @@ namespace InventrySystem
             }
             return productData;
         }
-        public void showStock(DataGridView gv, DataGridViewColumn ProductIDGV, DataGridViewColumn NameGV, DataGridViewColumn BarcodeGV, DataGridViewColumn ExpiryGV, DataGridViewColumn PriceGV, DataGridViewColumn CategoryGV, DataGridViewColumn StockGV, DataGridViewColumn StatusGV, DataGridViewColumn TotGV)
+        public void showStock(DataGridView gv, DataGridViewColumn ProductIDGV, DataGridViewColumn NameGV, DataGridViewColumn BarcodeGV, DataGridViewColumn ExpiryGV, DataGridViewColumn BuyPriceGV, DataGridViewColumn SellPriceGV,DataGridViewColumn CategoryGV, DataGridViewColumn StockGV, DataGridViewColumn StatusGV, DataGridViewColumn TotGV)
         {
             try
             {
@@ -397,7 +396,8 @@ namespace InventrySystem
                 NameGV.DataPropertyName = dt.Columns["Product"].ToString();
                 BarcodeGV.DataPropertyName = dt.Columns["Barcode"].ToString();
                 ExpiryGV.DataPropertyName = dt.Columns["Expiry"].ToString();
-                PriceGV.DataPropertyName = dt.Columns["Price"].ToString();
+                BuyPriceGV.DataPropertyName = dt.Columns["BuyPrice"].ToString();
+                SellPriceGV.DataPropertyName = dt.Columns["SellPrice"].ToString();
                 CategoryGV.DataPropertyName = dt.Columns["Category"].ToString();
                 StockGV.DataPropertyName = dt.Columns["Stock"].ToString();
                 StatusGV.DataPropertyName = dt.Columns["Status"].ToString();
@@ -411,6 +411,60 @@ namespace InventrySystem
                 MainClass.con.Close();
                 MainClass.ShowMSG(ex.Message, "Error", "Error");
             }
+        }
+        public void showProductsWRTCategory(int catID, DataGridView gv, DataGridViewColumn ProductIDGV, DataGridViewColumn NameGV, DataGridViewColumn BuyPriceGV, DataGridViewColumn FinalPriceGV, DataGridViewColumn DiscountGV, DataGridViewColumn ProfitMarginGV)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("st_getProductsWRTCategory", MainClass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@catID", catID);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                ProductIDGV.DataPropertyName = dt.Columns["ProductID"].ToString();
+                NameGV.DataPropertyName = dt.Columns["ProductName"].ToString();
+                BuyPriceGV.DataPropertyName = dt.Columns["BuyPrice"].ToString();
+                FinalPriceGV.DataPropertyName = dt.Columns["SellPrice"].ToString();
+                DiscountGV.DataPropertyName = dt.Columns["Discount"].ToString();
+                ProfitMarginGV.DataPropertyName = dt.Columns["ProfitPercentage"].ToString();
+
+                gv.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+
+                MainClass.con.Close();
+                MainClass.ShowMSG(ex.Message, "Error", "Error");
+            }
+        }
+        private bool existance;
+        public bool checkProductPriceExistance(int pID)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("st_checkProductPriceExist", MainClass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@proID", pID);
+                MainClass.con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    existance = true;
+                }
+                else
+                {
+                    existance = false;
+                }
+                MainClass.con.Close();
+            }
+            catch (Exception ex)
+            {
+
+                MainClass.con.Close();
+                MainClass.ShowMSG(ex.Message, "Error", "Error");
+            }
+            return existance;
         }
 
     }

@@ -19,11 +19,11 @@ namespace InventrySystem
 
         private void Stocks_Load(object sender, EventArgs e)
         {
-            //base.AddBtn.Visible = false;
-            //base.EditBtn.Visible = false;
-            //base.SaveBtn.Visible = false;
-            //base.DeleteBtn.Visible = false;
-            
+            base.AddBtn.Enabled = false;
+            base.EditBtn.Enabled = false;
+            base.SaveBtn.Enabled = false;
+            base.DeleteBtn.Enabled = false;
+
         }
         public override void AddBtn_Click(object sender, EventArgs e)
         {
@@ -48,7 +48,9 @@ namespace InventrySystem
         retrieval r = new retrieval();
         public override void ViewBtn_Click(object sender, EventArgs e)
         {
-            r.showStock(StockdataGridView, ProductIDGV, NameGV, BarcodeGV, ExpiryGV, PriceGV, CategoryGV, StockGV, StatusGV, TotGV);
+            r.showStock(StockdataGridView, ProductIDGV, NameGV, BarcodeGV, ExpiryGV, BuyPriceGV, SellPriceGV,CategoryGV, StockGV, StatusGV, TotGV);
         }
+        
+        
     }
 }

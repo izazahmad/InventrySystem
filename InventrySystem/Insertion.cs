@@ -60,7 +60,7 @@ namespace InventrySystem
                 MainClass.ShowMSG(ex.Message, "Error...", "Error");
             }
         }
-        public void insertProduct(string name, string barcode,float price, int categoryId, DateTime? expiry = null)
+        public void insertProduct(string name, string barcode, int categoryId, DateTime? expiry = null)
         {
             try
             {
@@ -68,7 +68,6 @@ namespace InventrySystem
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@name", name);
                 cmd.Parameters.AddWithValue("@barcode", barcode);
-                cmd.Parameters.AddWithValue("@price", price);
                 cmd.Parameters.AddWithValue("@catID", categoryId);
                 if(expiry==null)
                 {
@@ -232,6 +231,28 @@ namespace InventrySystem
             {
                 MainClass.con.Close();
                 MainClass.ShowMSG(ex.Message, "Error...", "Error");
+            }
+        }
+        public void insertProductPrice(int proID, float buyingAmount)
+        {
+            try
+            {
+
+                SqlCommand cmd = new SqlCommand("st_insertProductPrice", MainClass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@proID", proID);
+                cmd.Parameters.AddWithValue("@bp", buyingAmount);
+                
+                MainClass.con.Open();
+                cmd.ExecuteNonQuery();
+               
+                MainClass.con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MainClass.con.Close();
+                MainClass.ShowMSG(ex.Message, "Error", "Error");
             }
         }
     }

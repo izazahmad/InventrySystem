@@ -33,7 +33,7 @@ namespace InventrySystem
             catch (Exception ex)
             {
                 MainClass.con.Close();
-                MainClass.ShowMSG(ex.Message, "Error...", "Error");
+                MainClass.ShowMSG(ex.Message, "Error", "Error");
             }
         }
         public void updateCategory(int id,string name, Int16 status)
@@ -55,10 +55,10 @@ namespace InventrySystem
             catch (Exception ex)
             {
                 MainClass.con.Close();
-                MainClass.ShowMSG(ex.Message, "Error...", "Error");
+                MainClass.ShowMSG(ex.Message, "Error", "Error");
             }
         }
-        public void updateProduct(int proId,string name, string barcode, float price, int categoryId, DateTime? expiry=null)
+        public void updateProduct(int proId,string name, string barcode, int categoryId, DateTime? expiry=null)
         {
             try
             {
@@ -66,7 +66,6 @@ namespace InventrySystem
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@name", name);
                 cmd.Parameters.AddWithValue("@barcode", barcode);
-                cmd.Parameters.AddWithValue("@price", price);
                 cmd.Parameters.AddWithValue("@catID", categoryId);
                 cmd.Parameters.AddWithValue("@id", proId);
                 if (expiry == null)
@@ -88,7 +87,7 @@ namespace InventrySystem
             catch (Exception ex)
             {
                 MainClass.con.Close();
-                MainClass.ShowMSG(ex.Message, "Error...", "Error");
+                MainClass.ShowMSG(ex.Message, "Error", "Error");
             }
         }
         public void updateSupplier(int ID, string name, string person, string phone1, string address, short status, string phone2 = null, string tin = null)
@@ -133,7 +132,7 @@ namespace InventrySystem
             catch (Exception ex)
             {
                 MainClass.con.Close();
-                MainClass.ShowMSG(ex.Message, "Error...", "Error");
+                MainClass.ShowMSG(ex.Message, "Error", "Error");
             }
         }
         public void UpdateStock(int proID, int quan)
@@ -154,9 +153,48 @@ namespace InventrySystem
             {
 
                 MainClass.con.Close();
-                MainClass.ShowMSG(ex.Message, "Error...", "Error");
+                MainClass.ShowMSG(ex.Message, "Error", "Error");
             }
 
         }
+        public void UpdateProductPrice(int proID, float buy,float sell=0, float discount=0, float profit=0)
+        {
+            try
+            {
+                SqlCommand cmd;
+                if (sell==0 && discount==0 && profit==0)
+                {
+                    cmd = new SqlCommand("st_updateProductBuyPrice", MainClass.con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@proID", proID);
+                    cmd.Parameters.AddWithValue("@buyPrice", buy);
+                }
+                else
+                {
+                    cmd = new SqlCommand("st_updateProductPrice", MainClass.con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@proID", proID);
+                    cmd.Parameters.AddWithValue("@bp", buy);
+                    cmd.Parameters.AddWithValue("@sp", sell);
+                    cmd.Parameters.AddWithValue("@dis", discount);
+                    cmd.Parameters.AddWithValue("@profit", profit);
+                }
+                
+                
+
+                MainClass.con.Open();
+                cmd.ExecuteNonQuery();
+                MainClass.con.Close();
+
+            }
+            catch (Exception ex)
+            {
+
+                MainClass.con.Close();
+                MainClass.ShowMSG(ex.Message, "Error", "Error");
+            }
+
+        }
+        
     }
 }

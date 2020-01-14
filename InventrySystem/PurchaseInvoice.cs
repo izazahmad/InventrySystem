@@ -61,6 +61,15 @@ namespace InventrySystem
                     foreach (DataGridViewRow row in PurchasedataGridView.Rows)
                     {
                         co += i.insertPurchaseInvoiceDetails(purchaseInvoiceID, Convert.ToInt32(row.Cells["ProductIDGV"].Value.ToString()), Convert.ToInt32(row.Cells["QuantityGV"].Value.ToString()), Convert.ToSingle(row.Cells["TotGV"].Value.ToString()));
+                        if (r.checkProductPriceExistance(Convert.ToInt32(row.Cells["ProductIDGV"].Value.ToString())))
+                        {
+                            u.UpdateProductPrice(Convert.ToInt32(row.Cells["ProductIDGV"].Value.ToString()), Convert.ToSingle(row.Cells["PerUnitGV"].Value.ToString()));
+                        }
+                        else
+                        {
+                            i.insertProductPrice(Convert.ToInt32(row.Cells["ProductIDGV"].Value.ToString()), Convert.ToSingle(row.Cells["PerUnitGV"].Value.ToString()));
+
+                        }
                         object ob = r.getProductQuantity(Convert.ToInt32(row.Cells["ProductIDGV"].Value.ToString()));
                         int q = Convert.ToInt32(ob);
 
@@ -131,27 +140,7 @@ namespace InventrySystem
 
         private void BarcodeTxt_TextChanged(object sender, EventArgs e)
         {
-            if (BarcodeTxt.Text != "")
-            {
-                prodArr = r.getProductByBarcodeList(BarcodeTxt.Text);
-                productID = Convert.ToInt32(prodArr[0]);
-                ProductTxt.Text = prodArr[1];
-                PerUnitTxt.Text = prodArr[2];
-                string barco = prodArr[3];
-                ProductTxt.Enabled = false;
-                PerUnitTxt.Enabled = false;
-                if(barco !=null)
-                {
-                    QuantityTxt.Focus();
-                }
-            }
-            else
-            {
-                productID = 0;
-                ProductTxt.Text = "";
-                PerUnitTxt.Text = "";
-                Array.Clear(prodArr, 0, prodArr.Length);
-            }
+           
         }
 
         private void BarcodeTxt_Validated(object sender, EventArgs e)
@@ -195,6 +184,44 @@ namespace InventrySystem
                 }
             }
 
+        }
+
+        private void PerUnitTxt_TextChanged(object sender, EventArgs e)
+        {
+            if(PerUnitTxt.Text != "")
+            {
+                if(!rg.Match(PerUnitTxt.Text).Success)
+                {
+                    PerUnitTxt.Text = "";
+                    PerUnitTxt.Focus();
+                }
+            }
+        }
+
+        private void BarcodeTxt_Validating(object sender, CancelEventArgs e)
+        {
+            if (BarcodeTxt.Text != "")
+            {
+                prodArr = r.getProductByBarcodeList(BarcodeTxt.Text);
+                productID = Convert.ToInt32(prodArr[0]);
+                ProductTxt.Text = prodArr[1];
+                string barco = prodArr[2];
+                ProductTxt.Enabled = false;
+                //PerUnitTxt.Enabled = false;
+                if (barco != null)
+                {
+                    PerUnitTxt.Focus();
+                    //QuantityTxt.Focus();
+
+                }
+            }
+            else
+            {
+                productID = 0;
+                ProductTxt.Text = "";
+                PerUnitTxt.Text = "";
+                Array.Clear(prodArr, 0, prodArr.Length);
+            }
         }
 
         private void CartBtn_Click(object sender, EventArgs e)

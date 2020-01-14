@@ -41,6 +41,7 @@
             this.backBtn = new System.Windows.Forms.Button();
             this.leftPanel.SuspendLayout();
             this.rightPanel.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -57,14 +58,12 @@
             // rightPanel
             // 
             this.rightPanel.Controls.Add(this.panel3);
-            //this.rightPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.rightPanel_Paint);
             this.rightPanel.Controls.SetChildIndex(this.panel2, 0);
             this.rightPanel.Controls.SetChildIndex(this.panel3, 0);
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.backBtn);
-            this.panel1.Size = new System.Drawing.Size(280, 63);
             this.panel1.Controls.SetChildIndex(this.backBtn, 0);
             // 
             // panel3
@@ -181,6 +180,7 @@
             // 
             // ViewBtn
             // 
+            this.ViewBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ViewBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ViewBtn.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.ViewBtn.FlatAppearance.BorderSize = 2;
@@ -222,6 +222,7 @@
             this.Load += new System.EventHandler(this.Sample2_Load);
             this.leftPanel.ResumeLayout(false);
             this.rightPanel.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

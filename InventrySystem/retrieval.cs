@@ -127,7 +127,7 @@ namespace InventrySystem
             catch (Exception ex)
             {
                 MainClass.con.Close();
-                MainClass.ShowMSG(ex.Message, "Error...", "Error");
+                MainClass.ShowMSG(ex.Message, "Error", "Error");
             }
         }
 
@@ -194,7 +194,7 @@ namespace InventrySystem
             }
         }
         private object productStockCount = 0;
-        public object getProductQuantity(int proID)
+        public object getProductQuantity(Int64 proID)
         {
             try
             {
@@ -210,6 +210,22 @@ namespace InventrySystem
             {
 
                 MainClass.con.Close();
+                MainClass.ShowMSG(ex.Message, "Error", "Error");
+            }
+            return productStockCount;
+        }
+        public object getProductQuantityNoConnection(Int64 proID)
+        {
+            try
+            {
+
+                SqlCommand cmd = new SqlCommand("st_getProductQuantity", MainClass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@proID", proID);
+                productStockCount = cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
                 MainClass.ShowMSG(ex.Message, "Error", "Error");
             }
             return productStockCount;
@@ -345,13 +361,14 @@ namespace InventrySystem
                 MainClass.ShowMSG(ex.Message, "Error...", "Error");
             }
         }
-        private string[] productData = new string[3];
+        private string[] productData = new string[6];
         public string[] getProductByBarcodeList(string barcode)
         {
+            SqlCommand cmd;
             try
             {
                 
-                SqlCommand cmd = new SqlCommand("st_getProductByBarcode", MainClass.con);
+                cmd = new SqlCommand("st_getProductByBarcode", MainClass.con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@barcode", barcode);
                 MainClass.con.Open();
@@ -360,24 +377,75 @@ namespace InventrySystem
                 {
                     while(dr.Read())
                     {
+                        //product id
                         productData[0] = dr[0].ToString();
+                        //product name
                         productData[1] = dr[1].ToString();
+                        //product barcode
                         productData[2] = dr[2].ToString();
-                        
+                        //selling price
+                        productData[3] = dr[3].ToString();
+                        //discount
+                        productData[4] = dr[4].ToString();
+                        //final price
+                        productData[5] = dr[5].ToString();
+
+
                     }
                 }
-                //else
-                //{
-                //    MainClass.ShowMSG("No Product Abailable", "Error", "Error");
-                //}
+                else
+                {
+                    MainClass.ShowMSG("Invalid Barcode", "Error", "Error");
+                    Array.Clear(productData, 0, productData.Length);
+
+                }
                 MainClass.con.Close();
             }
             catch (Exception ex)
             {
                 MainClass.con.Close();
-                MainClass.ShowMSG(ex.Message, "Error...", "Error");
+                MainClass.ShowMSG(ex.Message, "Error", "Error");
             }
             return productData;
+        }
+        private string[] product = new string[3];
+        public string[] getProductDetailBarcode(string barcode)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("st_getProductDetailByBarcode", MainClass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@barcode", barcode);
+                MainClass.con.Open();
+                SqlDataReader dr1 = cmd.ExecuteReader();
+                if (dr1.HasRows)
+                {
+                    while (dr1.Read())
+                    {
+                        //product id
+                        product[0] = dr1[0].ToString();
+                        //product name
+                        product[1] = dr1[1].ToString();
+                        //product barcode
+                        product[2] = dr1[2].ToString();
+                        
+                        
+                    }
+                }
+                else
+                {
+                    MainClass.ShowMSG("Invalid Barcode", "Error", "Error");
+                    Array.Clear(product, 0, product.Length);
+                }
+                MainClass.con.Close();
+            }
+            catch (Exception ex)
+            {
+
+                MainClass.con.Close();
+                MainClass.ShowMSG(ex.Message, "Error", "Error");
+            }
+            return product;
         }
         public void showStock(DataGridView gv, DataGridViewColumn ProductIDGV, DataGridViewColumn NameGV, DataGridViewColumn BarcodeGV, DataGridViewColumn ExpiryGV, DataGridViewColumn BuyPriceGV, DataGridViewColumn SellPriceGV,DataGridViewColumn CategoryGV, DataGridViewColumn StockGV, DataGridViewColumn StatusGV, DataGridViewColumn TotGV)
         {
@@ -439,7 +507,7 @@ namespace InventrySystem
             }
         }
         private bool existance;
-        public bool checkProductPriceExistance(int pID)
+        public bool checkProductPriceExistance(Int64 pID)
         {
             try
             {

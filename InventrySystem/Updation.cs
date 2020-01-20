@@ -58,7 +58,7 @@ namespace InventrySystem
                 MainClass.ShowMSG(ex.Message, "Error", "Error");
             }
         }
-        public void updateProduct(int proId,string name, string barcode, int categoryId, DateTime? expiry=null)
+        public void updateProduct(Int64 proId,string name, string barcode, int categoryId, DateTime? expiry=null)
         {
             try
             {
@@ -135,7 +135,7 @@ namespace InventrySystem
                 MainClass.ShowMSG(ex.Message, "Error", "Error");
             }
         }
-        public void UpdateStock(int proID, int quan)
+        public void UpdateStock(Int64 proID, int quan)
         {
             try
             {
@@ -157,7 +157,25 @@ namespace InventrySystem
             }
 
         }
-        public void UpdateProductPrice(int proID, float buy,float sell=0, float discount=0, float profit=0)
+        public void UpdateStockNoConnection(Int64 proID, int quan)
+        {
+            try
+            {
+
+                SqlCommand cmd = new SqlCommand("st_updateStock", MainClass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@proID", proID);
+                cmd.Parameters.AddWithValue("@quan", quan);
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                MainClass.ShowMSG(ex.Message, "Error", "Error");
+            }
+
+        }
+        public void UpdateProductPrice(Int64 proID, float buy,float sell=0, float discount=0, float profit=0)
         {
             try
             {

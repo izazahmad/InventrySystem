@@ -16,8 +16,9 @@ namespace InventrySystem
     {
         retrieval r = new retrieval();
         int edit;
-        string[] prodArr = new string[4];
-        int productID;
+        string[] prodArr = new string[6];
+        string[] prod = new string[3];
+        Int64 productID;
         float gt,tot;
         Regex rg = new Regex(@"^[0-9]*(?:\.[0-9]*)?$");
         public PurchaseInvoice()
@@ -202,10 +203,10 @@ namespace InventrySystem
         {
             if (BarcodeTxt.Text != "")
             {
-                prodArr = r.getProductByBarcodeList(BarcodeTxt.Text);
-                productID = Convert.ToInt32(prodArr[0]);
-                ProductTxt.Text = prodArr[1];
-                string barco = prodArr[2];
+                prod = r.getProductDetailBarcode(BarcodeTxt.Text);
+                productID = Convert.ToInt32(prod[0]);
+                ProductTxt.Text = prod[1];
+                string barco = prod[2];
                 ProductTxt.Enabled = false;
                 //PerUnitTxt.Enabled = false;
                 if (barco != null)
@@ -220,7 +221,7 @@ namespace InventrySystem
                 productID = 0;
                 ProductTxt.Text = "";
                 PerUnitTxt.Text = "";
-                Array.Clear(prodArr, 0, prodArr.Length);
+                Array.Clear(prod, 0, prod.Length);
             }
         }
 

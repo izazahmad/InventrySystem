@@ -14,7 +14,7 @@ namespace InventrySystem
     {
         retrieval r = new retrieval();
         int edit=0;
-        int proID;
+        Int64 proID;
         public Products()
         {
             InitializeComponent();

@@ -12,6 +12,8 @@ namespace InventrySystem
 {
     class Insertion
     {
+        retrieval r = new retrieval();
+        Updation u = new Updation();
         public void insertUser(string name, string username, string pass, string email, string phone, Int16 status)
         {
             try
@@ -164,7 +166,7 @@ namespace InventrySystem
             return PurchaseInvoiceID;
         }
         int pidCount;
-        public int insertPurchaseInvoiceDetails(Int64 purchaseInvoiceId,int proID, int quan, float totPrice)
+        public int insertPurchaseInvoiceDetails(Int64 purchaseInvoiceId,Int64 proID, int quan, float totPrice)
         {
             try
             {
@@ -189,7 +191,7 @@ namespace InventrySystem
             }
             return pidCount;
         }
-        public void insertStock(int proID, int quan)
+        public void insertStock(Int64 proID, int quan)
         {
             try
             {
@@ -212,7 +214,7 @@ namespace InventrySystem
             
         }
 
-        public void insertDeletedItem(Int64 pID, int userID, int proID, int quan, DateTime date)
+        public void insertDeletedItem(Int64 pID, int userID, Int64 proID, int quan, DateTime date)
         {
             try
             {
@@ -233,7 +235,7 @@ namespace InventrySystem
                 MainClass.ShowMSG(ex.Message, "Error...", "Error");
             }
         }
-        public void insertProductPrice(int proID, float buyingAmount)
+        public void insertProductPrice(Int64 proID, float buyingAmount)
         {
             try
             {
@@ -254,6 +256,73 @@ namespace InventrySystem
                 MainClass.con.Close();
                 MainClass.ShowMSG(ex.Message, "Error", "Error");
             }
+        }
+        int salCount = 0;
+        Int64 SaleID;
+        public void insertSales(DataGridView gv, string proIDgv, string proQuanGV, int doneBy, DateTime dt, float totAmount, float totalDiscount, float given, float Return,string payType)
+        {
+            try
+            {
+                using (TransactionScope sc= new TransactionScope())
+                {
+                    SqlCommand cmd = new SqlCommand("st_insertSales", MainClass.con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@done", doneBy);
+                    cmd.Parameters.AddWithValue("@date", dt);
+                    cmd.Parameters.AddWithValue("@totamt", totAmount);
+                    cmd.Parameters.AddWithValue("@totdis", totalDiscount);
+                    cmd.Parameters.AddWithValue("@given", given);
+                    cmd.Parameters.AddWithValue("@return", Return);
+                    if (payType=="Cash")
+                    {
+                        cmd.Parameters.AddWithValue("@payType", 0);
+                    }
+                    else if (payType=="Debit Card")
+                    {
+                        cmd.Parameters.AddWithValue("@payType", 1);
+
+                    }
+                    else if (payType=="Credit Card")
+                    {
+                        cmd.Parameters.AddWithValue("@payType", 2);
+
+                    }
+                    MainClass.con.Open();
+                    salCount = cmd.ExecuteNonQuery();
+                    if (salCount > 0)
+                    {
+                        SqlCommand Scmd = new SqlCommand("st_getSalesID", MainClass.con);
+                        Scmd.CommandType = CommandType.StoredProcedure;
+                        SaleID = Convert.ToInt64(Scmd.ExecuteScalar());
+                        
+                        foreach (DataGridViewRow row in gv.Rows)
+                        {
+                            SqlCommand ISCmd = new SqlCommand("st_insertSalesDetails", MainClass.con);
+                            ISCmd.CommandType = CommandType.StoredProcedure;
+                            ISCmd.Parameters.AddWithValue("@salID", SaleID);
+                            ISCmd.Parameters.AddWithValue("@proID", Convert.ToInt64(row.Cells[proIDgv].Value.ToString()));
+                            ISCmd.Parameters.AddWithValue("@quan", Convert.ToInt32(row.Cells[proQuanGV].Value.ToString()));
+                            ISCmd.ExecuteNonQuery();
+                            int productStock =Convert.ToInt32(r.getProductQuantityNoConnection(Convert.ToInt64(row.Cells[proIDgv].Value.ToString())));
+                            int CurrentQuantity = Convert.ToInt32(row.Cells[proQuanGV].Value.ToString());
+                            int finalQuantity = productStock - CurrentQuantity;
+                            u.UpdateStockNoConnection(Convert.ToInt64(row.Cells[proIDgv].Value.ToString()), finalQuantity);
+                        }
+                    }
+                    MainClass.con.Close();
+                    MainClass.ShowMSG("Sales Successful", "Success", "Success");
+                    sc.Complete();
+                }
+                
+
+            }
+            catch (Exception ex)
+            {
+
+                MainClass.con.Close();
+                MainClass.ShowMSG(ex.Message, "Error", "Error");
+            }
+      
         }
     }
 }

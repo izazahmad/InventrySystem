@@ -25,6 +25,7 @@ namespace InventrySystem
 
         private void MDI_Load(object sender, EventArgs e)
         {
+            //IsMdiContainer = true;
             string Path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
             if (File.Exists(Path+"\\connect"))
@@ -48,7 +49,7 @@ namespace InventrySystem
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MDI.logOutToolStripMenuItem.Enabled = false;
+            logOutToolStripMenuItem.Enabled = false;
             
             Login set = new Login();
             MainClass.showWindow(set, this);

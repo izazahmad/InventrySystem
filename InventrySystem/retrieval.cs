@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Windows.Forms;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -269,6 +271,30 @@ namespace InventrySystem
             get;
             private set;
         }
+        public void showReport(ReportDocument rd,CrystalReportViewer crv,string proc, string param, object val)
+        {
+            try
+            {
+                //DialogResult dr = MessageBox.Show(param, Convert.ToInt32(val).ToString(), MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                SqlCommand cmd = new SqlCommand(proc, MainClass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue(param, val);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                rd.Load(Application.StartupPath + "\\Reports\\Report.rpt");
+                rd.SetDataSource(dt);
+                crv.ReportSource = rd;
+                crv.RefreshReport();
+            }
+            catch (Exception ex)
+            {
+
+                MainClass.con.Close();
+                MainClass.ShowMSG(ex.Message, "Error ", "Error");
+            }
+        }
         private static string user_name, pass_word;
         private static bool checkLogin;
         public static bool getUserDetails(string username, string password)
@@ -287,7 +313,6 @@ namespace InventrySystem
                     while(dr.Read())
                     {
                         USER_ID = Convert.ToInt32(dr["ID"].ToString());
-
                         EMP_NAME = dr["Name"].ToString();
                         user_name = dr["Username"].ToString();
                         pass_word = dr["Password"].ToString();
@@ -533,6 +558,32 @@ namespace InventrySystem
                 MainClass.ShowMSG(ex.Message, "Error", "Error");
             }
             return existance;
+        }
+        public void showDailySales(DateTime date,DataGridView gv, DataGridViewColumn SaleIDGV, DataGridViewColumn UserGV, DataGridViewColumn TotAmountGV, DataGridViewColumn TotDisGV, DataGridViewColumn GivenGV, DataGridViewColumn ReturnGV, DataGridViewColumn UserIDGV)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("st_getDailySales", MainClass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@date", date);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                SaleIDGV.DataPropertyName = dt.Columns["SalesID"].ToString();
+                UserGV.DataPropertyName = dt.Columns["UserName"].ToString();
+                TotAmountGV.DataPropertyName = dt.Columns["TotalAmount"].ToString();
+                TotDisGV.DataPropertyName = dt.Columns["TotalDiscount"].ToString();
+                GivenGV.DataPropertyName = dt.Columns["GivenAmount"].ToString();
+                ReturnGV.DataPropertyName = dt.Columns["ReturnAmount"].ToString();
+                UserIDGV.DataPropertyName = dt.Columns["UserID"].ToString();
+                gv.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+
+                MainClass.con.Close();
+                MainClass.ShowMSG(ex.Message, "Error", "Error");
+            }
         }
 
     }

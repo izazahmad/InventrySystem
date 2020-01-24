@@ -218,6 +218,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1326, 742);
+            this.IsMdiContainer = false;
             this.Name = "Sample2";
             this.Load += new System.EventHandler(this.Sample2_Load);
             this.leftPanel.ResumeLayout(false);

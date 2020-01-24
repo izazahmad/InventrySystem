@@ -27,6 +27,11 @@ namespace InventrySystem
         {
 
         }
+        public override void ViewBtn_Click(object sender, EventArgs e)
+        {
+            ViewSalesInvoice vws = new ViewSalesInvoice();
+            MainClass.showWindow(vws, this, MDI.ActiveForm);
+        }
         private bool productCheck;
         private void BarcodeTxt_Validating(object sender, CancelEventArgs e)
         {
@@ -210,6 +215,8 @@ namespace InventrySystem
                     MainClass.enable_reset(PayGroupBox);
                     SalesdataGridView.Rows.Clear();
                     GrossLbl.Text = "0.00";
+                    SalesReciept sr = new SalesReciept();
+                    sr.Show();
                 }
             }
         }

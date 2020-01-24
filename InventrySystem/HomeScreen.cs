@@ -37,8 +37,9 @@ namespace InventrySystem
 
         private void HomeScreen_Load(object sender, EventArgs e)
         {
+            MDI mdi = new MDI();
             UserDisplayLbl.Text = retrieval.EMP_NAME;
-            MDI.logOutToolStripMenuItem.Enabled = true;
+            mdi.logOutToolStripMenuItem.Enabled = true;
         }
 
         private void SupplierBtn_Click(object sender, EventArgs e)

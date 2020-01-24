@@ -28,6 +28,7 @@ namespace InventrySystem
         }
         public static void showWindow(Form openWin,Form clsWin,Form MDIWin)
         {
+            
             clsWin.Close();
             openWin.MdiParent = MDIWin;
             openWin.WindowState = FormWindowState.Maximized;

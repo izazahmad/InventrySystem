@@ -71,5 +71,11 @@ namespace InventrySystem
             ProductPricing p = new ProductPricing();
             MainClass.showWindow(p, this, MDI.ActiveForm);
         }
+
+        private void SalesReturnBtn_Click(object sender, EventArgs e)
+        {
+            SalesReturnWindow sr = new SalesReturnWindow();
+            MainClass.showWindow(sr,this,MDI.ActiveForm);
+        }
     }
 }

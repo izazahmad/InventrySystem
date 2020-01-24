@@ -44,3 +44,4 @@ D:\ProjectWork\InventrySystem\InventrySystem\obj\Debug\InventrySystem.exe
 D:\ProjectWork\InventrySystem\InventrySystem\obj\Debug\InventrySystem.pdb
 D:\ProjectWork\InventrySystem\InventrySystem\obj\Debug\InventrySystem.csprojAssemblyReference.cache
 D:\ProjectWork\InventrySystem\InventrySystem\obj\Debug\InventrySystem.ViewSalesInvoice.resources
+D:\ProjectWork\InventrySystem\InventrySystem\obj\Debug\InventrySystem.SalesReturnWindow.resources

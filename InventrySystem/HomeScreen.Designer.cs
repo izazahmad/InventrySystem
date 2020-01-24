@@ -37,6 +37,7 @@
             this.userBtn = new System.Windows.Forms.Button();
             this.CatogoryBtn = new System.Windows.Forms.Button();
             this.proPricingBtn = new System.Windows.Forms.Button();
+            this.SalesReturnBtn = new System.Windows.Forms.Button();
             this.leftPanel.SuspendLayout();
             this.rightPanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -83,6 +84,7 @@
             this.tableLayoutPanel1.Controls.Add(this.userBtn, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.CatogoryBtn, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.proPricingBtn, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.SalesReturnBtn, 3, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 80);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -207,12 +209,25 @@
             this.proPricingBtn.UseVisualStyleBackColor = true;
             this.proPricingBtn.Click += new System.EventHandler(this.proPricingBtn_Click);
             // 
+            // SalesReturnBtn
+            // 
+            this.SalesReturnBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SalesReturnBtn.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.SalesReturnBtn.FlatAppearance.BorderSize = 2;
+            this.SalesReturnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SalesReturnBtn.Location = new System.Drawing.Point(879, 130);
+            this.SalesReturnBtn.Name = "SalesReturnBtn";
+            this.SalesReturnBtn.Size = new System.Drawing.Size(286, 121);
+            this.SalesReturnBtn.TabIndex = 9;
+            this.SalesReturnBtn.Text = "Sales Return";
+            this.SalesReturnBtn.UseVisualStyleBackColor = true;
+            this.SalesReturnBtn.Click += new System.EventHandler(this.SalesReturnBtn_Click);
+            // 
             // HomeScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1743, 719);
-            this.IsMdiContainer = false;
             this.Name = "HomeScreen";
             this.Text = "Home Screen";
             this.Load += new System.EventHandler(this.HomeScreen_Load);
@@ -235,5 +250,6 @@
         private System.Windows.Forms.Button CatogoryBtn;
         private System.Windows.Forms.Button SupplierBtn;
         private System.Windows.Forms.Button proPricingBtn;
+        private System.Windows.Forms.Button SalesReturnBtn;
     }
 }

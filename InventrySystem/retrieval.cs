@@ -192,7 +192,47 @@ namespace InventrySystem
             {
 
                 MainClass.con.Close();
-                MainClass.ShowMSG(ex.Message, "Error...", "Error");
+                MainClass.ShowMSG(ex.Message, "Error", "Error");
+            }
+        }
+        public void showSalesData(Int64 SalesID, DataGridView gv, DataGridViewColumn SaleIDGV, DataGridViewColumn ProIDGV, 
+            DataGridViewColumn BarcodeGV, DataGridViewColumn NameGV, DataGridViewColumn QuantityGV, DataGridViewColumn PriceGV,
+            DataGridViewColumn PerDiscountGV, DataGridViewColumn PerTotalGV, DataGridViewColumn TotDisGV, DataGridViewColumn TotGV, DataGridViewColumn GivenGV,
+            DataGridViewColumn ReturnGV, DataGridViewColumn DateGV, DataGridViewColumn PaymentGV, DataGridViewColumn UserGV)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("st_getSalesReceiptBySalesID", MainClass.con);
+                cmd.Parameters.AddWithValue("@SalesID", SalesID);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                SaleIDGV.DataPropertyName = dt.Columns["SalesID"].ToString();
+                ProIDGV.DataPropertyName = dt.Columns["ProductID"].ToString();
+                BarcodeGV.DataPropertyName = dt.Columns["Barcode"].ToString();
+                NameGV.DataPropertyName = dt.Columns["ProductName"].ToString();
+                QuantityGV.DataPropertyName = dt.Columns["Quantity"].ToString();
+                PriceGV.DataPropertyName = dt.Columns["ProductPrice"].ToString();
+                PerDiscountGV.DataPropertyName = dt.Columns["PerProductDiscount"].ToString();
+                PerTotalGV.DataPropertyName = dt.Columns["PerProductTotal"].ToString();
+                TotDisGV.DataPropertyName = dt.Columns["TotalDiscount"].ToString();
+                TotGV.DataPropertyName = dt.Columns["TotalAmount"].ToString();
+
+                GivenGV.DataPropertyName = dt.Columns["AmountGiven"].ToString();
+                ReturnGV.DataPropertyName = dt.Columns["AmountReturn"].ToString();
+                DateGV.DataPropertyName = dt.Columns["Date"].ToString();
+                PaymentGV.DataPropertyName = dt.Columns["PayType"].ToString();
+                UserGV.DataPropertyName = dt.Columns["UserName"].ToString();
+
+                gv.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+
+                MainClass.con.Close();
+                MainClass.ShowMSG(ex.Message, "Error", "Error");
             }
         }
         private object productStockCount = 0;

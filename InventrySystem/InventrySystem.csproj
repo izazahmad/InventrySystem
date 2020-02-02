@@ -67,6 +67,12 @@
       <DependentUpon>Categories.cs</DependentUpon>
     </Compile>
     <Compile Include="Deletion.cs" />
+    <Compile Include="SalesDetailReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SalesDetailReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="SalesReciept.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,12 @@
     <Compile Include="Sales.Designer.cs">
       <DependentUpon>Sales.cs</DependentUpon>
     </Compile>
+    <Compile Include="SalesReturnRecieptWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesReturnRecieptWindow.Designer.cs">
+      <DependentUpon>SalesReturnRecieptWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="SalesReturnWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +193,10 @@
     <EmbeddedResource Include="Categories.resx">
       <DependentUpon>Categories.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SalesDetailReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SalesDetailReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="SalesReciept.resx">
       <DependentUpon>SalesReciept.cs</DependentUpon>
     </EmbeddedResource>
@@ -217,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sales.resx">
       <DependentUpon>Sales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesReturnRecieptWindow.resx">
+      <DependentUpon>SalesReturnRecieptWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SalesReturnWindow.resx">
       <DependentUpon>SalesReturnWindow.cs</DependentUpon>

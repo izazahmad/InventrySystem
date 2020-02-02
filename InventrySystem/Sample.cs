@@ -25,11 +25,12 @@ namespace InventrySystem
 
         private void Sample_Load(object sender, EventArgs e)
         {
-            MDI mdi = new MDI();
-            if (retrieval.EMP_NAME != null && mdi.logOutToolStripMenuItem.Enabled==true)
-            {
-                UserDisplayLbl.Text = retrieval.EMP_NAME;
-            }
+            //MDI mdi = new MDI();
+            //if (retrieval.EMP_NAME != null && mdi.logOutToolStripMenuItem.Enabled==true)
+            //{
+            //    UserDisplayLbl.Text = retrieval.EMP_NAME;
+            //}
+            UserDisplayLbl.Text = retrieval.EMP_NAME;
             
         }
     }

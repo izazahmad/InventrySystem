@@ -84,13 +84,13 @@ namespace InventrySystem
                 MainClass.con.Open();
                 cmd.ExecuteNonQuery();
                 MainClass.con.Close();
-                MainClass.ShowMSG(name + " added to the system successfully", "Success...", "Success");
+                MainClass.ShowMSG(name + " added to the system successfully", "Success", "Success");
 
             }
             catch (Exception ex)
             {
                 MainClass.con.Close();
-                MainClass.ShowMSG(ex.Message, "Error...", "Error");
+                MainClass.ShowMSG(ex.Message, "Error", "Error");
             }
         }
         public void insertSupplier(string name, string person, string phone1, string address, short status, string phone2=null,string tin=null)
@@ -129,13 +129,13 @@ namespace InventrySystem
                 MainClass.con.Open();
                 cmd.ExecuteNonQuery();
                 MainClass.con.Close();
-                MainClass.ShowMSG(name + " added to the system successfully", "Success...", "Success");
+                MainClass.ShowMSG(name + " added to the system successfully", "Success", "Success");
 
             }
             catch (Exception ex)
             {
                 MainClass.con.Close();
-                MainClass.ShowMSG(ex.Message, "Error...", "Error");
+                MainClass.ShowMSG(ex.Message, "Error", "Error");
             }
         }
         private Int64 PurchaseInvoiceID;
@@ -161,7 +161,7 @@ namespace InventrySystem
             catch (Exception ex)
             {
                 MainClass.con.Close();
-                MainClass.ShowMSG(ex.Message, "Error...", "Error");
+                MainClass.ShowMSG(ex.Message, "Error", "Error");
             }
             return PurchaseInvoiceID;
         }
@@ -187,7 +187,7 @@ namespace InventrySystem
             {
 
                 MainClass.con.Close();
-                MainClass.ShowMSG(ex.Message, "Error...", "Error");
+                MainClass.ShowMSG(ex.Message, "Error", "Error");
             }
             return pidCount;
         }
@@ -209,7 +209,7 @@ namespace InventrySystem
             {
 
                 MainClass.con.Close();
-                MainClass.ShowMSG(ex.Message, "Error...", "Error");
+                MainClass.ShowMSG(ex.Message, "Error", "Error");
             }
             
         }
@@ -232,7 +232,7 @@ namespace InventrySystem
             catch (Exception ex)
             {
                 MainClass.con.Close();
-                MainClass.ShowMSG(ex.Message, "Error...", "Error");
+                MainClass.ShowMSG(ex.Message, "Error", "Error");
             }
         }
         public void insertProductPrice(Int64 proID, float buyingAmount)
@@ -259,11 +259,11 @@ namespace InventrySystem
         }
         int salCount = 0;
         Int64 SaleID;
-        public void insertSales(DataGridView gv, string proIDgv, string proQuanGV, int doneBy, DateTime dt, float totAmount, float totalDiscount, float given, float Return,string payType)
+        public void insertSales(DataGridView gv, string proIDgv, string proQuanGV, string totGV,string totDisGV ,int doneBy, DateTime dt, float totAmount, float totalDiscount, float given, float Return,string payType)
         {
             try
             {
-                using (TransactionScope sc= new TransactionScope())
+                using (TransactionScope sc= new TransactionScope(TransactionScopeOption.Required,TimeSpan.FromMinutes(30)))
                 {
                     SqlCommand cmd = new SqlCommand("st_insertSales", MainClass.con);
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -302,6 +302,8 @@ namespace InventrySystem
                             ISCmd.Parameters.AddWithValue("@salID", SaleID);
                             ISCmd.Parameters.AddWithValue("@proID", Convert.ToInt64(row.Cells[proIDgv].Value.ToString()));
                             ISCmd.Parameters.AddWithValue("@quan", Convert.ToInt32(row.Cells[proQuanGV].Value.ToString()));
+                            ISCmd.Parameters.AddWithValue("@sellPrice", Convert.ToSingle(row.Cells[totGV].Value.ToString()));
+                            ISCmd.Parameters.AddWithValue("@discount", Convert.ToSingle(row.Cells[totDisGV].Value.ToString()));
                             ISCmd.ExecuteNonQuery();
                             int productStock =Convert.ToInt32(r.getProductQuantityNoConnection(Convert.ToInt64(row.Cells[proIDgv].Value.ToString())));
                             int CurrentQuantity = Convert.ToInt32(row.Cells[proQuanGV].Value.ToString());
@@ -323,6 +325,35 @@ namespace InventrySystem
                 MainClass.ShowMSG(ex.Message, "Error", "Error");
             }
       
+        }
+        int refCount;
+        public int insertRefunds(Int64 saleID, DateTime date, int donBy, Int64 proID, Int16 quantity, float Amount)
+        {
+            try
+            {
+
+                SqlCommand cmd = new SqlCommand("st_insertRefundsReturns", MainClass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@saleID", saleID);
+
+                cmd.Parameters.AddWithValue("@date", date);
+                cmd.Parameters.AddWithValue("@doneBy", donBy);
+                cmd.Parameters.AddWithValue("@proID", proID);
+                cmd.Parameters.AddWithValue("@quantity", quantity);
+                cmd.Parameters.AddWithValue("@amount", Amount);
+
+                MainClass.con.Open();
+                refCount = cmd.ExecuteNonQuery();
+
+                MainClass.con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MainClass.con.Close();
+                MainClass.ShowMSG(ex.Message, "Error", "Error");
+            }
+            return refCount;
         }
     }
 }

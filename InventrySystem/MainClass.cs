@@ -181,7 +181,7 @@ namespace InventrySystem
         {
             foreach (Control c in gb.Controls)
             {
-                if (c is TextBox)
+                 if (c is TextBox)
                 {
                     TextBox t = (TextBox)c;
                     t.Enabled = true;

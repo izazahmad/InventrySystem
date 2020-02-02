@@ -58,6 +58,27 @@ namespace InventrySystem
                 MainClass.ShowMSG(ex.Message, "Error", "Error");
             }
         }
+        public void updateSalesQuantity(Int64 id,Int64 proId ,int Quantity)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("st_updateQuantityInSalesDetails", MainClass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@saleID", id);
+                cmd.Parameters.AddWithValue("@proID",proId);
+                cmd.Parameters.AddWithValue("@quan", Quantity);
+                MainClass.con.Open();
+                cmd.ExecuteNonQuery();
+                MainClass.con.Close();
+                //MainClass.ShowMSG(name + " updated to the system successfully", "Success...", "Success");
+
+            }
+            catch (Exception ex)
+            {
+                MainClass.con.Close();
+                MainClass.ShowMSG(ex.Message, "Error", "Error");
+            }
+        }
         public void updateProduct(Int64 proId,string name, string barcode, int categoryId, DateTime? expiry=null)
         {
             try

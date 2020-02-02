@@ -34,12 +34,16 @@ namespace InventrySystem
             Products p = new Products();
             MainClass.showWindow(p, this, MDI.ActiveForm);
         }
-
+        //MDI mdi = new MDI();
         private void HomeScreen_Load(object sender, EventArgs e)
         {
-            MDI mdi = new MDI();
+            //MDI mdi = new MDI();
             UserDisplayLbl.Text = retrieval.EMP_NAME;
-            mdi.logOutToolStripMenuItem.Enabled = true;
+            MDI.logOutToolStripMenuItem.Enabled = true;
+            MDI.homeToolStripMenuItem.Enabled = true;
+            //mdi.Controls["logOutToolStripMenuItem"].Enabled = true;
+            //MDI.mdiObj.homeToolStripMenuItem.Enabled = true;
+
         }
 
         private void SupplierBtn_Click(object sender, EventArgs e)

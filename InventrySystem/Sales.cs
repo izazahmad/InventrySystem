@@ -18,7 +18,7 @@ namespace InventrySystem
             InitializeComponent();
         }
         retrieval r = new retrieval();
-        string[] prodArr = new string[6];
+        string[] prodArr = new string[5];
         Int64 productID;
         float gt, tot, discount;
         Regex rg = new Regex(@"^[0-9]*(?:\.[0-9]*)?$");
@@ -65,12 +65,14 @@ namespace InventrySystem
                         if (newCount<=0)
                         {
                             MainClass.ShowMSG(" no stock left now", "Alert", "Alert");
+                            BarcodeTxt.Text = "";
+                            BarcodeTxt.Focus();
                         }
                         else
                         {
                             if (SalesdataGridView.RowCount == 0)
                             {
-                                SalesdataGridView.Rows.Add(productID, prodArr[1], 1, Convert.ToSingle(prodArr[3]), prodArr[4], Convert.ToSingle(prodArr[5]));
+                                SalesdataGridView.Rows.Add(productID, prodArr[1], 1, Convert.ToSingle(prodArr[3]), prodArr[4], Convert.ToSingle(prodArr[3]));
                             }
                             else
                             {
@@ -102,16 +104,16 @@ namespace InventrySystem
                                             {
                                                 //discount = Convert.ToSingle(row.Cells["DiscountGV"].Value.ToString()) * Convert.ToSingle(row.Cells["QuantityGV"].Value.ToString());
                                                 discount = Convert.ToSingle(row.Cells["DiscountGV"].Value.ToString()) + Convert.ToSingle(prodArr[4]);
-                                                row.Cells["DiscountGV"].Value =Math.Round(discount,0);
+                                                row.Cells["DiscountGV"].Value =Math.Round(discount,2);
                                             }
-                                            row.Cells["TotGV"].Value = Math.Round(tot-discount,0);
+                                            row.Cells["TotGV"].Value = Math.Round(tot,2);
                                             
                                         }
                                     }
                                 }
                                 else
                                 {
-                                    SalesdataGridView.Rows.Add(productID, prodArr[1], 1, Convert.ToSingle(prodArr[3]), prodArr[4], Convert.ToSingle(prodArr[5]));
+                                    SalesdataGridView.Rows.Add(productID, prodArr[1], 1, Convert.ToSingle(prodArr[3]), prodArr[4], Convert.ToSingle(prodArr[3]));
 
                                 }
                             }
@@ -120,7 +122,7 @@ namespace InventrySystem
                                 gt += Convert.ToSingle(row1.Cells["TotGV"].Value.ToString());
 
                             }
-                            GrossLbl.Text =Math.Round(gt,0).ToString();
+                            GrossLbl.Text =Math.Round(gt,2).ToString();
                             gt = 0;
                             BarcodeTxt.Text = "";
                             BarcodeTxt.Focus();
@@ -144,6 +146,8 @@ namespace InventrySystem
 
         private void CheckoutBtn_Click(object sender, EventArgs e)
         {
+            discount = 0;
+            gt = 0;
             if(SalesdataGridView.Rows.Count>0)
             {
                 foreach (DataGridViewRow row in SalesdataGridView.Rows)
@@ -151,8 +155,8 @@ namespace InventrySystem
                     discount += Convert.ToSingle(row.Cells["DiscountGV"].Value.ToString());
                     gt += Convert.ToSingle(row.Cells["TotGV"].Value.ToString());
                 }
-                GrossTxt.Text = Math.Round(gt,0).ToString();
-                TotDiscountTxt.Text = Math.Round(discount,0).ToString();
+                GrossTxt.Text = Math.Round(gt,2).ToString();
+                TotDiscountTxt.Text = Math.Round(discount,2).ToString();
             }
         }
 
@@ -173,7 +177,7 @@ namespace InventrySystem
                         gt = Convert.ToSingle(GrossLbl.Text);
                         
                         gt = gt - Convert.ToSingle(row.Cells["TotGV"].Value.ToString());
-                        GrossLbl.Text = Math.Round(gt,0).ToString();
+                        GrossLbl.Text = Math.Round(gt,2).ToString();
                         SalesdataGridView.Rows.Remove(row);
                     }
                     else if(q>1)
@@ -182,15 +186,15 @@ namespace InventrySystem
                         row.Cells["QuantityGV"].Value = q;
                         //discount = Convert.ToSingle(row.Cells["QuantityGV"].Value.ToString()) * Convert.ToSingle(prodArr[4]);
                         discount = Convert.ToSingle(row.Cells["DiscountGV"].Value.ToString()) - Convert.ToSingle(prodArr[4]);
-                        row.Cells["DiscountGV"].Value = Math.Round(discount,0);
-                        tot = Convert.ToSingle(row.Cells["QuantityGV"].Value.ToString()) * Convert.ToSingle(row.Cells["PerUnitGV"].Value.ToString())-discount;
-                        row.Cells["TotGV"].Value = Math.Round(tot,0);
+                        row.Cells["DiscountGV"].Value = Math.Round(discount,2);
+                        tot = Convert.ToSingle(row.Cells["QuantityGV"].Value.ToString()) * Convert.ToSingle(row.Cells["PerUnitGV"].Value.ToString());
+                        row.Cells["TotGV"].Value = Math.Round(tot,2);
                         foreach (DataGridViewRow row1 in SalesdataGridView.Rows)
                         {
                             gt += Convert.ToSingle(row1.Cells["TotGV"].Value.ToString());
 
                         }
-                        GrossLbl.Text = Math.Round(gt,0).ToString();
+                        GrossLbl.Text = Math.Round(gt,2).ToString();
                         gt = 0;
                     }
 
@@ -199,10 +203,7 @@ namespace InventrySystem
             }
         }
 
-        private void BarcodeTxt_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
+
         Insertion i = new Insertion();
         private void payBtn_Click(object sender, EventArgs e)
         {
@@ -211,7 +212,7 @@ namespace InventrySystem
                 DialogResult dr = MessageBox.Show("\n\tTotal Amount: "+GrossTxt.Text+"\n\tTotal Discount: "+TotDiscountTxt.Text+"\n\tAmount Given: "+AmountGiveTxt.Text+"\n\tAmount Returned: "+ChangeGiveTxt.Text+ "\n\nAre you sure, submit current sales?", "Question",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
                 if (dr==DialogResult.Yes)
                 {
-                    i.insertSales(SalesdataGridView, "ProductIDGV", "QuantityGV", retrieval.USER_ID, DateTime.Now, Convert.ToSingle(GrossTxt.Text), Convert.ToSingle(TotDiscountTxt.Text), Convert.ToSingle(AmountGiveTxt.Text), Convert.ToSingle(ChangeGiveTxt.Text),PaymentDD.SelectedItem.ToString());
+                    i.insertSales(SalesdataGridView, "ProductIDGV", "QuantityGV","TotGV", "DiscountGV", retrieval.USER_ID, DateTime.Now, Convert.ToSingle(GrossTxt.Text), Convert.ToSingle(TotDiscountTxt.Text), Convert.ToSingle(AmountGiveTxt.Text), Convert.ToSingle(ChangeGiveTxt.Text),PaymentDD.SelectedItem.ToString());
                     MainClass.enable_reset(PayGroupBox);
                     SalesdataGridView.Rows.Clear();
                     GrossLbl.Text = "0.00";
@@ -253,7 +254,7 @@ namespace InventrySystem
                 {
                     float Given = Convert.ToSingle(AmountGiveTxt.Text);
                     float Return = Given - Convert.ToSingle(GrossTxt.Text);
-                    ChangeGiveTxt.Text = Math.Round(Return,0).ToString();
+                    ChangeGiveTxt.Text = Math.Round(Return,2).ToString();
                 }
             }
         }

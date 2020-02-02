@@ -68,7 +68,6 @@
             this.panel5.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.PayGroupBox.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,7 +76,7 @@
             this.panel4.Controls.Add(this.panel6);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 63);
-            this.panel4.Size = new System.Drawing.Size(280, 56);
+            this.panel4.Size = new System.Drawing.Size(280, 114);
             // 
             // backBtn
             // 
@@ -101,14 +100,17 @@
             this.rightPanel.Controls.SetChildIndex(this.SalesdataGridView, 0);
             this.rightPanel.Controls.SetChildIndex(this.panel5, 0);
             // 
+            // UserDisplayLbl
+            // 
+            this.UserDisplayLbl.Text = "";
+            // 
             // BarcodeTxt
             // 
-            this.BarcodeTxt.Location = new System.Drawing.Point(11, 6);
+            this.BarcodeTxt.Location = new System.Drawing.Point(12, 78);
             this.BarcodeTxt.MaxLength = 100;
             this.BarcodeTxt.Name = "BarcodeTxt";
             this.BarcodeTxt.Size = new System.Drawing.Size(256, 27);
             this.BarcodeTxt.TabIndex = 3;
-            this.BarcodeTxt.TextChanged += new System.EventHandler(this.BarcodeTxt_TextChanged);
             this.BarcodeTxt.Validating += new System.ComponentModel.CancelEventHandler(this.BarcodeTxt_Validating);
             // 
             // SalesdataGridView
@@ -277,11 +279,11 @@
             this.PayGroupBox.Controls.Add(this.label4);
             this.PayGroupBox.Controls.Add(this.label3);
             this.PayGroupBox.Controls.Add(this.payBtn);
-            this.PayGroupBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.PayGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.PayGroupBox.ForeColor = System.Drawing.SystemColors.Window;
-            this.PayGroupBox.Location = new System.Drawing.Point(0, 158);
+            this.PayGroupBox.Location = new System.Drawing.Point(0, 177);
             this.PayGroupBox.Name = "PayGroupBox";
-            this.PayGroupBox.Size = new System.Drawing.Size(280, 584);
+            this.PayGroupBox.Size = new System.Drawing.Size(280, 626);
             this.PayGroupBox.TabIndex = 5;
             this.PayGroupBox.TabStop = false;
             this.PayGroupBox.Text = "Payments";
@@ -397,9 +399,8 @@
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.BarcodeTxt);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 119);
+            this.panel7.Location = new System.Drawing.Point(0, 803);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(280, 39);
             this.panel7.TabIndex = 6;
@@ -407,7 +408,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 29);
+            this.label2.Location = new System.Drawing.Point(12, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(102, 20);
             this.label2.TabIndex = 0;
@@ -415,11 +416,12 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.BarcodeTxt);
             this.panel6.Controls.Add(this.label2);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(280, 56);
+            this.panel6.Size = new System.Drawing.Size(280, 108);
             this.panel6.TabIndex = 1;
             // 
             // Sales
@@ -440,8 +442,6 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.PayGroupBox.ResumeLayout(false);
             this.PayGroupBox.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.ResumeLayout(false);

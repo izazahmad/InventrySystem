@@ -236,17 +236,30 @@ namespace InventrySystem
             }
         }
         private object productStockCount = 0;
-        public object getProductQuantity(Int64 proID)
+        public object getProductQuantity(Int64 proID, string salID=null)
         {
             try
             {
-
-                SqlCommand cmd = new SqlCommand("st_getProductQuantity", MainClass.con);
-                cmd.CommandType = CommandType.StoredProcedure;
+                SqlCommand cmd;
+                if (salID != null)
+                {
+                    cmd = new SqlCommand("st_getQuantityFromSD", MainClass.con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    Int64 salId = Convert.ToInt64(salID);
+                    cmd.Parameters.AddWithValue("@saleID", salId);
+                    
+                }
+                else
+                {
+                    cmd = new SqlCommand("st_getProductQuantity", MainClass.con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    
+                }
                 cmd.Parameters.AddWithValue("@proID", proID);
                 MainClass.con.Open();
                 productStockCount = cmd.ExecuteScalar();
-                MainClass.con.Close();
+                    MainClass.con.Close();
+                
             }
             catch (Exception ex)
             {
@@ -255,6 +268,50 @@ namespace InventrySystem
                 MainClass.ShowMSG(ex.Message, "Error", "Error");
             }
             return productStockCount;
+        }
+        //object proQuan = 0;
+        //public object getProductQuantityBysalIDProID(Int64 proID, Int64 salID)
+        //{
+        //    try
+        //    {
+        //        SqlCommand cmd = new SqlCommand("st_getQuantityFromSD", MainClass.con);
+        //            cmd.CommandType = CommandType.StoredProcedure;
+        //            cmd.Parameters.AddWithValue("@saleID", salID);
+        //            cmd.Parameters.AddWithValue("@proID", proID);
+        //            MainClass.con.Open();
+               
+
+        //        productStockCount = cmd.ExecuteScalar();
+        //        MainClass.con.Close();
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        MainClass.con.Close();
+        //        MainClass.ShowMSG(ex.Message, "Error", "Error");
+        //    }
+        //    return productStockCount;
+        //}
+        private object productSellPrice = 0;
+        public object getProductSellPrice(int proID)
+        {
+           
+            try
+            {
+                SqlCommand cmd = new SqlCommand("st_getPerProductSellPrice", MainClass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@proID", proID);
+                MainClass.con.Open();
+                productSellPrice = cmd.ExecuteScalar();
+                MainClass.con.Close();
+            }
+            catch (Exception ex)
+            {
+                MainClass.con.Close();
+                MainClass.ShowMSG(ex.Message,"Error","Error");
+            }
+            return productSellPrice;
         }
         public object getProductQuantityNoConnection(Int64 proID)
         {
@@ -311,19 +368,23 @@ namespace InventrySystem
             get;
             private set;
         }
-        public void showReport(ReportDocument rd,CrystalReportViewer crv,string proc, string param, object val)
+        public void showReport(ReportDocument rd,CrystalReportViewer crv,string proc, string reportFile, string param=null, object val=null)
         {
             try
             {
                 //DialogResult dr = MessageBox.Show(param, Convert.ToInt32(val).ToString(), MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                 SqlCommand cmd = new SqlCommand(proc, MainClass.con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue(param, val);
+                if (param !=null && val !=null)
+                {
+                    cmd.Parameters.AddWithValue(param, val);
 
+                }
+                
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
-                rd.Load(Application.StartupPath + "\\Reports\\Report.rpt");
+                rd.Load(Application.StartupPath + "\\Reports\\"+ reportFile);
                 rd.SetDataSource(dt);
                 crv.ReportSource = rd;
                 crv.RefreshReport();
@@ -426,7 +487,7 @@ namespace InventrySystem
                 MainClass.ShowMSG(ex.Message, "Error...", "Error");
             }
         }
-        private string[] productData = new string[6];
+        private string[] productData = new string[5];
         public string[] getProductByBarcodeList(string barcode)
         {
             SqlCommand cmd;
@@ -452,8 +513,8 @@ namespace InventrySystem
                         productData[3] = dr[3].ToString();
                         //discount
                         productData[4] = dr[4].ToString();
-                        //final price
-                        productData[5] = dr[5].ToString();
+                        ////final price
+                        //productData[5] = dr[5].ToString();
 
 
                     }

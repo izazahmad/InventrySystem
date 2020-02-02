@@ -82,7 +82,12 @@ namespace InventrySystem
 
         private void Login_Load(object sender, EventArgs e)
         {
-           
+            //MDI mdi = new MDI();
+            //if (retrieval.USER_ID == 0)
+            //{
+            //    mdi.logOutToolStripMenuItem.Enabled = false;
+            //}
+
         }
     }
 }

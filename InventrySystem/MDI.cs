@@ -49,6 +49,7 @@ namespace InventrySystem
             homeToolStripMenuItem.Enabled = false;
             settings set = new settings();
             MainClass.showWindow(set, this);
+            
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)

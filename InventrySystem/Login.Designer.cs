@@ -65,11 +65,16 @@
             // 
             // panel1
             // 
-            this.panel1.Size = new System.Drawing.Size(280, 80);
+            this.panel1.Size = new System.Drawing.Size(278, 80);
+            // 
+            // UserDisplayLbl
+            // 
+            this.UserDisplayLbl.Text = "";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(12, 257);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 20);
@@ -99,6 +104,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(12, 317);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 20);
@@ -110,6 +116,7 @@
             this.LoginBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LoginBtn.FlatAppearance.BorderSize = 2;
             this.LoginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LoginBtn.ForeColor = System.Drawing.Color.Black;
             this.LoginBtn.Location = new System.Drawing.Point(16, 384);
             this.LoginBtn.Name = "LoginBtn";
             this.LoginBtn.Size = new System.Drawing.Size(214, 34);

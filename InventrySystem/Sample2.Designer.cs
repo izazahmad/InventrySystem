@@ -66,6 +66,11 @@
             this.panel1.Controls.Add(this.backBtn);
             this.panel1.Controls.SetChildIndex(this.backBtn, 0);
             // 
+            // UserDisplayLbl
+            // 
+            this.UserDisplayLbl.Text = "";
+            this.UserDisplayLbl.Click += new System.EventHandler(this.UserDisplayLbl_Click);
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.tableLayoutPanel1);
@@ -101,9 +106,10 @@
             // 
             // DeleteBtn
             // 
+            this.DeleteBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.DeleteBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DeleteBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DeleteBtn.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.DeleteBtn.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
             this.DeleteBtn.FlatAppearance.BorderSize = 2;
             this.DeleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteBtn.Location = new System.Drawing.Point(525, 3);
@@ -111,14 +117,15 @@
             this.DeleteBtn.Size = new System.Drawing.Size(168, 50);
             this.DeleteBtn.TabIndex = 3;
             this.DeleteBtn.Text = "DELETE";
-            this.DeleteBtn.UseVisualStyleBackColor = true;
+            this.DeleteBtn.UseVisualStyleBackColor = false;
             this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
             // SaveBtn
             // 
+            this.SaveBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.SaveBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SaveBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SaveBtn.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.SaveBtn.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
             this.SaveBtn.FlatAppearance.BorderSize = 2;
             this.SaveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveBtn.Location = new System.Drawing.Point(351, 3);
@@ -126,14 +133,15 @@
             this.SaveBtn.Size = new System.Drawing.Size(168, 50);
             this.SaveBtn.TabIndex = 2;
             this.SaveBtn.Text = "SAVE";
-            this.SaveBtn.UseVisualStyleBackColor = true;
+            this.SaveBtn.UseVisualStyleBackColor = false;
             this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
             // EditBtn
             // 
+            this.EditBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.EditBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.EditBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.EditBtn.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.EditBtn.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
             this.EditBtn.FlatAppearance.BorderSize = 2;
             this.EditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EditBtn.Location = new System.Drawing.Point(177, 3);
@@ -141,14 +149,15 @@
             this.EditBtn.Size = new System.Drawing.Size(168, 50);
             this.EditBtn.TabIndex = 1;
             this.EditBtn.Text = "EDIT";
-            this.EditBtn.UseVisualStyleBackColor = true;
+            this.EditBtn.UseVisualStyleBackColor = false;
             this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
             // 
             // AddBtn
             // 
+            this.AddBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.AddBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AddBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AddBtn.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.AddBtn.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
             this.AddBtn.FlatAppearance.BorderSize = 2;
             this.AddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddBtn.Location = new System.Drawing.Point(3, 3);
@@ -156,7 +165,7 @@
             this.AddBtn.Size = new System.Drawing.Size(168, 50);
             this.AddBtn.TabIndex = 0;
             this.AddBtn.Text = "ADD";
-            this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.UseVisualStyleBackColor = false;
             this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // groupBox1
@@ -180,9 +189,10 @@
             // 
             // ViewBtn
             // 
+            this.ViewBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.ViewBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ViewBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ViewBtn.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.ViewBtn.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
             this.ViewBtn.FlatAppearance.BorderSize = 2;
             this.ViewBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ViewBtn.Location = new System.Drawing.Point(699, 3);
@@ -190,7 +200,7 @@
             this.ViewBtn.Size = new System.Drawing.Size(168, 50);
             this.ViewBtn.TabIndex = 4;
             this.ViewBtn.Text = "VIEW";
-            this.ViewBtn.UseVisualStyleBackColor = true;
+            this.ViewBtn.UseVisualStyleBackColor = false;
             this.ViewBtn.Click += new System.EventHandler(this.ViewBtn_Click);
             // 
             // panel4
@@ -205,6 +215,7 @@
             this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.backBtn.FlatAppearance.BorderSize = 0;
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backBtn.ForeColor = System.Drawing.Color.White;
             this.backBtn.Image = global::InventrySystem.Properties.Resources.BackImage1;
             this.backBtn.Location = new System.Drawing.Point(3, 3);
             this.backBtn.Name = "backBtn";
@@ -218,7 +229,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1326, 742);
-            this.IsMdiContainer = false;
             this.Name = "Sample2";
             this.Load += new System.EventHandler(this.Sample2_Load);
             this.leftPanel.ResumeLayout(false);

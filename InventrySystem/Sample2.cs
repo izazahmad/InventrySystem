@@ -18,6 +18,7 @@ namespace InventrySystem
         }
         private void Sample2_Load(object sender, EventArgs e)
         {
+            
 
         }
         public virtual void backBtn_Click(object sender, EventArgs e)
@@ -54,6 +55,11 @@ namespace InventrySystem
         
 
         public virtual void ViewBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UserDisplayLbl_Click(object sender, EventArgs e)
         {
 
         }

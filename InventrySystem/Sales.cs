@@ -207,18 +207,50 @@ namespace InventrySystem
         Insertion i = new Insertion();
         private void payBtn_Click(object sender, EventArgs e)
         {
-            if (AmountGiveTxt.Text != "" && TotDiscountTxt.Text!="" && GrossTxt.Text != "" && PaymentDD.SelectedIndex != -1 && ChangeGiveTxt.Text != "")
+            if ( TotDiscountTxt.Text!="" && GrossTxt.Text != "" && PaymentDD.SelectedIndex != -1 )
             {
-                DialogResult dr = MessageBox.Show("\n\tTotal Amount: "+GrossTxt.Text+"\n\tTotal Discount: "+TotDiscountTxt.Text+"\n\tAmount Given: "+AmountGiveTxt.Text+"\n\tAmount Returned: "+ChangeGiveTxt.Text+ "\n\nAre you sure, submit current sales?", "Question",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                DialogResult dr;
+                if(PaymentDD.SelectedIndex == 0)
+                {
+                     dr = MessageBox.Show("\n\tTotal Amount: " + GrossTxt.Text + "\n\tTotal Discount: " + TotDiscountTxt.Text + "\n\tAmount Given: " + AmountGiveTxt.Text + "\n\tAmount Returned: " + ChangeGiveTxt.Text + "\n\nAre you sure, submit current sales?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                }
+                else
+                {
+                    dr = MessageBox.Show("\n\tTotal Amount: " + GrossTxt.Text + "\n\tTotal Discount: " + TotDiscountTxt.Text +"\n\nAre you sure, submit current sales?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                }
                 if (dr==DialogResult.Yes)
                 {
-                    i.insertSales(SalesdataGridView, "ProductIDGV", "QuantityGV","TotGV", "DiscountGV", retrieval.USER_ID, DateTime.Now, Convert.ToSingle(GrossTxt.Text), Convert.ToSingle(TotDiscountTxt.Text), Convert.ToSingle(AmountGiveTxt.Text), Convert.ToSingle(ChangeGiveTxt.Text),PaymentDD.SelectedItem.ToString());
+                    if (PaymentDD.SelectedIndex==0)
+                    {
+                        i.insertSales(SalesdataGridView, "ProductIDGV", "QuantityGV", "TotGV", "DiscountGV", retrieval.USER_ID, DateTime.Now, Convert.ToSingle(GrossTxt.Text), Convert.ToSingle(TotDiscountTxt.Text), Convert.ToSingle(AmountGiveTxt.Text), Convert.ToSingle(ChangeGiveTxt.Text), PaymentDD.SelectedItem.ToString());
+
+                    }
+                    else
+                    {
+                        i.insertSales(SalesdataGridView, "ProductIDGV", "QuantityGV", "TotGV", "DiscountGV", retrieval.USER_ID, DateTime.Now, Convert.ToSingle(GrossTxt.Text), Convert.ToSingle(TotDiscountTxt.Text), 0, 0, PaymentDD.SelectedItem.ToString());
+
+                    }
                     MainClass.enable_reset(PayGroupBox);
                     SalesdataGridView.Rows.Clear();
                     GrossLbl.Text = "0.00";
                     SalesReciept sr = new SalesReciept();
                     sr.Show();
                 }
+            }
+        }
+
+        private void PaymentDD_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (PaymentDD.SelectedIndex==1 || PaymentDD.SelectedIndex==2)
+            {
+                AmountGiveTxt.Enabled = false;
+                ChangeGiveTxt.Enabled = false;
+            }
+            else
+            {
+                AmountGiveTxt.Enabled = true;
+                ChangeGiveTxt.Enabled = true;
             }
         }
 
@@ -231,10 +263,7 @@ namespace InventrySystem
                     AmountGiveTxt.Text = "";
                     AmountGiveTxt.Focus();
                 }
-                else
-                {
-                    
-                }
+                
             }
             else
             {

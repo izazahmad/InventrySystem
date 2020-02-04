@@ -369,6 +369,7 @@
             this.PaymentDD.Name = "PaymentDD";
             this.PaymentDD.Size = new System.Drawing.Size(256, 28);
             this.PaymentDD.TabIndex = 8;
+            this.PaymentDD.SelectedIndexChanged += new System.EventHandler(this.PaymentDD_SelectedIndexChanged);
             // 
             // label5
             // 

@@ -87,7 +87,7 @@ namespace InventrySystem
             //{
             //    mdi.logOutToolStripMenuItem.Enabled = false;
             //}
-
+            UserDisplayLbl.Text = "";
         }
     }
 }

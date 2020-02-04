@@ -15,11 +15,11 @@ namespace InventrySystem
     public partial class PurchaseInvoice : Sample2
     {
         retrieval r = new retrieval();
-        int edit;
+        
         string[] prodArr = new string[6];
         string[] prod = new string[3];
         Int64 productID;
-        float gt,tot;
+        float gt;
         Regex rg = new Regex(@"^[0-9]*(?:\.[0-9]*)?$");
         public PurchaseInvoice()
         {
@@ -38,14 +38,12 @@ namespace InventrySystem
             SupplierDD.DataSource = null;
             SupplierDD.Items.Clear();
             SupplierDD.SelectedItem = 0;
-            edit = 0;
             r.getSupplierList("st_getSupplierList", SupplierDD, "Company", "ID");
 
         }
 
         public override void EditBtn_Click(object sender, EventArgs e)
         {
-            edit = 1;
             MainClass.enable(leftPanel);
         }
         int co;

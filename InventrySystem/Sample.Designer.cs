@@ -42,6 +42,7 @@
             // 
             // rightPanel
             // 
+            this.rightPanel.BackColor = System.Drawing.Color.White;
             this.rightPanel.Controls.Add(this.panel2);
             this.rightPanel.Location = new System.Drawing.Point(283, 0);
             this.rightPanel.Name = "rightPanel";
@@ -61,7 +62,7 @@
             // UserDisplayLbl
             // 
             this.UserDisplayLbl.Dock = System.Windows.Forms.DockStyle.Left;
-            this.UserDisplayLbl.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserDisplayLbl.Font = new System.Drawing.Font("Copperplate Gothic Bold", 15F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserDisplayLbl.Location = new System.Drawing.Point(0, 0);
             this.UserDisplayLbl.Name = "UserDisplayLbl";
             this.UserDisplayLbl.Size = new System.Drawing.Size(960, 63);
@@ -71,7 +72,8 @@
             // 
             // leftPanel
             // 
-            this.leftPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.leftPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.leftPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.leftPanel.Controls.Add(this.panel1);
             this.leftPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.leftPanel.ForeColor = System.Drawing.Color.White;
@@ -86,16 +88,17 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(280, 63);
+            this.panel1.Size = new System.Drawing.Size(278, 63);
             this.panel1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(94, 0);
+            this.label1.Font = new System.Drawing.Font("Wide Latin", 15F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(71, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(186, 63);
+            this.label1.Size = new System.Drawing.Size(207, 63);
             this.label1.TabIndex = 1;
             this.label1.Text = "Welcome";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

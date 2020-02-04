@@ -271,19 +271,25 @@ namespace InventrySystem
                     cmd.Parameters.AddWithValue("@date", dt);
                     cmd.Parameters.AddWithValue("@totamt", totAmount);
                     cmd.Parameters.AddWithValue("@totdis", totalDiscount);
-                    cmd.Parameters.AddWithValue("@given", given);
-                    cmd.Parameters.AddWithValue("@return", Return);
+                    
                     if (payType=="Cash")
                     {
+                        cmd.Parameters.AddWithValue("@given", given);
+                        cmd.Parameters.AddWithValue("@return", Return);
                         cmd.Parameters.AddWithValue("@payType", 0);
+                        
                     }
                     else if (payType=="Debit Card")
                     {
+                        cmd.Parameters.AddWithValue("@given", 0);
+                        cmd.Parameters.AddWithValue("@return", 0);
                         cmd.Parameters.AddWithValue("@payType", 1);
 
                     }
                     else if (payType=="Credit Card")
                     {
+                        cmd.Parameters.AddWithValue("@given", 0);
+                        cmd.Parameters.AddWithValue("@return", 0);
                         cmd.Parameters.AddWithValue("@payType", 2);
 
                     }

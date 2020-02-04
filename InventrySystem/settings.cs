@@ -80,7 +80,14 @@ namespace InventrySystem
 
         private void settings_Load(object sender, EventArgs e)
         {
-            
+            UserDisplayLbl.Text = "";
+
+        }
+
+        private void logInBtn_Click(object sender, EventArgs e)
+        {
+            Login log = new Login();
+            MainClass.showWindow(log, this, MDI.ActiveForm);
         }
     }
 }

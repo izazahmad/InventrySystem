@@ -62,11 +62,12 @@
             // 
             // panel1
             // 
-            this.panel1.Size = new System.Drawing.Size(280, 80);
+            this.panel1.Size = new System.Drawing.Size(278, 80);
             // 
             // UserDisplayLbl
             // 
             this.UserDisplayLbl.Size = new System.Drawing.Size(960, 80);
+            this.UserDisplayLbl.Text = "";
             // 
             // tableLayoutPanel1
             // 
@@ -99,8 +100,9 @@
             // 
             // SupplierBtn
             // 
+            this.SupplierBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.SupplierBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SupplierBtn.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.SupplierBtn.FlatAppearance.BorderColor = System.Drawing.Color.SkyBlue;
             this.SupplierBtn.FlatAppearance.BorderSize = 2;
             this.SupplierBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SupplierBtn.Location = new System.Drawing.Point(295, 130);
@@ -108,13 +110,14 @@
             this.SupplierBtn.Size = new System.Drawing.Size(286, 121);
             this.SupplierBtn.TabIndex = 7;
             this.SupplierBtn.Text = "Suppliers";
-            this.SupplierBtn.UseVisualStyleBackColor = true;
+            this.SupplierBtn.UseVisualStyleBackColor = false;
             this.SupplierBtn.Click += new System.EventHandler(this.SupplierBtn_Click);
             // 
             // SalesBtn
             // 
+            this.SalesBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.SalesBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SalesBtn.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.SalesBtn.FlatAppearance.BorderColor = System.Drawing.Color.SkyBlue;
             this.SalesBtn.FlatAppearance.BorderSize = 2;
             this.SalesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SalesBtn.Location = new System.Drawing.Point(1171, 3);
@@ -122,13 +125,14 @@
             this.SalesBtn.Size = new System.Drawing.Size(289, 121);
             this.SalesBtn.TabIndex = 4;
             this.SalesBtn.Text = "Sales";
-            this.SalesBtn.UseVisualStyleBackColor = true;
+            this.SalesBtn.UseVisualStyleBackColor = false;
             this.SalesBtn.Click += new System.EventHandler(this.SalesBtn_Click);
             // 
             // PurchaseInvoiceBtn
             // 
+            this.PurchaseInvoiceBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.PurchaseInvoiceBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PurchaseInvoiceBtn.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.PurchaseInvoiceBtn.FlatAppearance.BorderColor = System.Drawing.Color.SkyBlue;
             this.PurchaseInvoiceBtn.FlatAppearance.BorderSize = 2;
             this.PurchaseInvoiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PurchaseInvoiceBtn.Location = new System.Drawing.Point(879, 3);
@@ -136,13 +140,14 @@
             this.PurchaseInvoiceBtn.Size = new System.Drawing.Size(286, 121);
             this.PurchaseInvoiceBtn.TabIndex = 3;
             this.PurchaseInvoiceBtn.Text = "Purchase Invoice";
-            this.PurchaseInvoiceBtn.UseVisualStyleBackColor = true;
+            this.PurchaseInvoiceBtn.UseVisualStyleBackColor = false;
             this.PurchaseInvoiceBtn.Click += new System.EventHandler(this.PurchaseInvoiceBtn_Click);
             // 
             // StockBtn
             // 
+            this.StockBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.StockBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.StockBtn.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.StockBtn.FlatAppearance.BorderColor = System.Drawing.Color.SkyBlue;
             this.StockBtn.FlatAppearance.BorderSize = 2;
             this.StockBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.StockBtn.Location = new System.Drawing.Point(587, 3);
@@ -150,13 +155,14 @@
             this.StockBtn.Size = new System.Drawing.Size(286, 121);
             this.StockBtn.TabIndex = 2;
             this.StockBtn.Text = "Stock";
-            this.StockBtn.UseVisualStyleBackColor = true;
+            this.StockBtn.UseVisualStyleBackColor = false;
             this.StockBtn.Click += new System.EventHandler(this.StockBtn_Click);
             // 
             // productBtn
             // 
+            this.productBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.productBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.productBtn.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.productBtn.FlatAppearance.BorderColor = System.Drawing.Color.SkyBlue;
             this.productBtn.FlatAppearance.BorderSize = 2;
             this.productBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.productBtn.Location = new System.Drawing.Point(295, 3);
@@ -164,13 +170,14 @@
             this.productBtn.Size = new System.Drawing.Size(286, 121);
             this.productBtn.TabIndex = 1;
             this.productBtn.Text = "Products";
-            this.productBtn.UseVisualStyleBackColor = true;
+            this.productBtn.UseVisualStyleBackColor = false;
             this.productBtn.Click += new System.EventHandler(this.productBtn_Click);
             // 
             // userBtn
             // 
+            this.userBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.userBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userBtn.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.userBtn.FlatAppearance.BorderColor = System.Drawing.Color.SkyBlue;
             this.userBtn.FlatAppearance.BorderSize = 2;
             this.userBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.userBtn.Location = new System.Drawing.Point(3, 3);
@@ -178,13 +185,14 @@
             this.userBtn.Size = new System.Drawing.Size(286, 121);
             this.userBtn.TabIndex = 0;
             this.userBtn.Text = "Users";
-            this.userBtn.UseVisualStyleBackColor = true;
+            this.userBtn.UseVisualStyleBackColor = false;
             this.userBtn.Click += new System.EventHandler(this.userBtn_Click);
             // 
             // CatogoryBtn
             // 
+            this.CatogoryBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.CatogoryBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CatogoryBtn.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.CatogoryBtn.FlatAppearance.BorderColor = System.Drawing.Color.SkyBlue;
             this.CatogoryBtn.FlatAppearance.BorderSize = 2;
             this.CatogoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CatogoryBtn.Location = new System.Drawing.Point(3, 130);
@@ -192,13 +200,14 @@
             this.CatogoryBtn.Size = new System.Drawing.Size(286, 121);
             this.CatogoryBtn.TabIndex = 6;
             this.CatogoryBtn.Text = "Categories";
-            this.CatogoryBtn.UseVisualStyleBackColor = true;
+            this.CatogoryBtn.UseVisualStyleBackColor = false;
             this.CatogoryBtn.Click += new System.EventHandler(this.CatogoryBtn_Click);
             // 
             // proPricingBtn
             // 
+            this.proPricingBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.proPricingBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.proPricingBtn.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.proPricingBtn.FlatAppearance.BorderColor = System.Drawing.Color.SkyBlue;
             this.proPricingBtn.FlatAppearance.BorderSize = 2;
             this.proPricingBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.proPricingBtn.Location = new System.Drawing.Point(587, 130);
@@ -206,13 +215,14 @@
             this.proPricingBtn.Size = new System.Drawing.Size(286, 121);
             this.proPricingBtn.TabIndex = 8;
             this.proPricingBtn.Text = "Product Price";
-            this.proPricingBtn.UseVisualStyleBackColor = true;
+            this.proPricingBtn.UseVisualStyleBackColor = false;
             this.proPricingBtn.Click += new System.EventHandler(this.proPricingBtn_Click);
             // 
             // SalesReturnBtn
             // 
+            this.SalesReturnBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.SalesReturnBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SalesReturnBtn.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.SalesReturnBtn.FlatAppearance.BorderColor = System.Drawing.Color.SkyBlue;
             this.SalesReturnBtn.FlatAppearance.BorderSize = 2;
             this.SalesReturnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SalesReturnBtn.Location = new System.Drawing.Point(879, 130);
@@ -220,7 +230,7 @@
             this.SalesReturnBtn.Size = new System.Drawing.Size(286, 121);
             this.SalesReturnBtn.TabIndex = 9;
             this.SalesReturnBtn.Text = "Sales Return";
-            this.SalesReturnBtn.UseVisualStyleBackColor = true;
+            this.SalesReturnBtn.UseVisualStyleBackColor = false;
             this.SalesReturnBtn.Click += new System.EventHandler(this.SalesReturnBtn_Click);
             // 
             // HomeScreen

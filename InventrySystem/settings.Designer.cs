@@ -59,7 +59,7 @@
             this.leftPanel.Controls.Add(this.label4);
             this.leftPanel.Controls.Add(this.ServerTxt);
             this.leftPanel.Controls.Add(this.label2);
-            this.leftPanel.Size = new System.Drawing.Size(280, 760);
+            this.leftPanel.Size = new System.Drawing.Size(280, 718);
             this.leftPanel.Controls.SetChildIndex(this.panel1, 0);
             this.leftPanel.Controls.SetChildIndex(this.label2, 0);
             this.leftPanel.Controls.SetChildIndex(this.ServerTxt, 0);
@@ -74,6 +74,14 @@
             this.leftPanel.Controls.SetChildIndex(this.logInBtn, 0);
             this.leftPanel.Controls.SetChildIndex(this.label3, 0);
             // 
+            // rightPanel
+            // 
+            this.rightPanel.Size = new System.Drawing.Size(1050, 718);
+            // 
+            // panel2
+            // 
+            this.panel2.Size = new System.Drawing.Size(1050, 63);
+            // 
             // UserDisplayLbl
             // 
             this.UserDisplayLbl.Text = "";
@@ -82,7 +90,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(3, 242);
+            this.label2.Location = new System.Drawing.Point(3, 218);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 20);
             this.label2.TabIndex = 0;
@@ -90,7 +98,7 @@
             // 
             // ServerTxt
             // 
-            this.ServerTxt.Location = new System.Drawing.Point(4, 265);
+            this.ServerTxt.Location = new System.Drawing.Point(4, 241);
             this.ServerTxt.MaxLength = 50;
             this.ServerTxt.Name = "ServerTxt";
             this.ServerTxt.Size = new System.Drawing.Size(232, 27);
@@ -98,7 +106,7 @@
             // 
             // DatabaseTxt
             // 
-            this.DatabaseTxt.Location = new System.Drawing.Point(4, 325);
+            this.DatabaseTxt.Location = new System.Drawing.Point(4, 301);
             this.DatabaseTxt.MaxLength = 100;
             this.DatabaseTxt.Name = "DatabaseTxt";
             this.DatabaseTxt.Size = new System.Drawing.Size(232, 27);
@@ -108,7 +116,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(3, 302);
+            this.label4.Location = new System.Drawing.Point(3, 278);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 20);
             this.label4.TabIndex = 3;
@@ -116,7 +124,7 @@
             // 
             // UserIDTxt
             // 
-            this.UserIDTxt.Location = new System.Drawing.Point(4, 388);
+            this.UserIDTxt.Location = new System.Drawing.Point(4, 364);
             this.UserIDTxt.MaxLength = 30;
             this.UserIDTxt.Name = "UserIDTxt";
             this.UserIDTxt.Size = new System.Drawing.Size(232, 27);
@@ -126,7 +134,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(3, 365);
+            this.label5.Location = new System.Drawing.Point(3, 341);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 20);
             this.label5.TabIndex = 5;
@@ -134,7 +142,7 @@
             // 
             // PasswordTxt
             // 
-            this.PasswordTxt.Location = new System.Drawing.Point(4, 451);
+            this.PasswordTxt.Location = new System.Drawing.Point(4, 427);
             this.PasswordTxt.MaxLength = 30;
             this.PasswordTxt.Name = "PasswordTxt";
             this.PasswordTxt.Size = new System.Drawing.Size(232, 27);
@@ -144,7 +152,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(3, 428);
+            this.label6.Location = new System.Drawing.Point(3, 404);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(70, 20);
             this.label6.TabIndex = 7;
@@ -154,7 +162,7 @@
             // 
             this.IntSecChb.AutoSize = true;
             this.IntSecChb.ForeColor = System.Drawing.Color.Black;
-            this.IntSecChb.Location = new System.Drawing.Point(4, 496);
+            this.IntSecChb.Location = new System.Drawing.Point(4, 472);
             this.IntSecChb.Name = "IntSecChb";
             this.IntSecChb.Size = new System.Drawing.Size(160, 24);
             this.IntSecChb.TabIndex = 9;
@@ -168,7 +176,7 @@
             this.SaveBtn.FlatAppearance.BorderSize = 2;
             this.SaveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveBtn.ForeColor = System.Drawing.Color.Black;
-            this.SaveBtn.Location = new System.Drawing.Point(4, 537);
+            this.SaveBtn.Location = new System.Drawing.Point(4, 513);
             this.SaveBtn.Name = "SaveBtn";
             this.SaveBtn.Size = new System.Drawing.Size(232, 35);
             this.SaveBtn.TabIndex = 10;
@@ -182,7 +190,7 @@
             this.logInBtn.FlatAppearance.BorderSize = 2;
             this.logInBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logInBtn.ForeColor = System.Drawing.Color.Black;
-            this.logInBtn.Location = new System.Drawing.Point(0, 614);
+            this.logInBtn.Location = new System.Drawing.Point(5, 590);
             this.logInBtn.Name = "logInBtn";
             this.logInBtn.Size = new System.Drawing.Size(232, 35);
             this.logInBtn.TabIndex = 11;
@@ -195,7 +203,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(94, 577);
+            this.label3.Location = new System.Drawing.Point(94, 553);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 28);
             this.label3.TabIndex = 12;
@@ -205,7 +213,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1329, 760);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1330, 718);
+            this.Location = new System.Drawing.Point(0, 0);
             this.Name = "settings";
             this.Text = "settings";
             this.Load += new System.EventHandler(this.settings_Load);

@@ -44,9 +44,10 @@
             // 
             this.rightPanel.BackColor = System.Drawing.Color.White;
             this.rightPanel.Controls.Add(this.panel2);
-            this.rightPanel.Location = new System.Drawing.Point(283, 0);
+            this.rightPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rightPanel.Location = new System.Drawing.Point(280, 0);
             this.rightPanel.Name = "rightPanel";
-            this.rightPanel.Size = new System.Drawing.Size(1046, 745);
+            this.rightPanel.Size = new System.Drawing.Size(1244, 747);
             this.rightPanel.TabIndex = 0;
             // 
             // panel2
@@ -55,7 +56,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1046, 63);
+            this.panel2.Size = new System.Drawing.Size(1244, 63);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -107,7 +108,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1329, 747);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1330, 747);
             this.ControlBox = false;
             this.Controls.Add(this.rightPanel);
             this.Controls.Add(this.leftPanel);

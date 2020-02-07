@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.SuppNameLbl = new System.Windows.Forms.Label();
             this.SuppNameTxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -63,8 +63,13 @@
             this.leftPanel.SuspendLayout();
             this.rightPanel.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SupplierdataGridView)).BeginInit();
             this.SuspendLayout();
+            // 
+            // backBtn
+            // 
+            this.backBtn.FlatAppearance.BorderSize = 0;
             // 
             // leftPanel
             // 
@@ -89,7 +94,7 @@
             this.leftPanel.Controls.Add(this.Phone2ErrorLbl);
             this.leftPanel.Controls.Add(this.AddressErrorLbl);
             this.leftPanel.Controls.Add(this.TinErrorLbl);
-            this.leftPanel.Size = new System.Drawing.Size(280, 743);
+            this.leftPanel.Size = new System.Drawing.Size(280, 718);
             this.leftPanel.Controls.SetChildIndex(this.TinErrorLbl, 0);
             this.leftPanel.Controls.SetChildIndex(this.AddressErrorLbl, 0);
             this.leftPanel.Controls.SetChildIndex(this.Phone2ErrorLbl, 0);
@@ -117,6 +122,7 @@
             // rightPanel
             // 
             this.rightPanel.Controls.Add(this.SupplierdataGridView);
+            this.rightPanel.Size = new System.Drawing.Size(1050, 718);
             this.rightPanel.Controls.SetChildIndex(this.panel2, 0);
             this.rightPanel.Controls.SetChildIndex(this.panel3, 0);
             this.rightPanel.Controls.SetChildIndex(this.SupplierdataGridView, 0);
@@ -124,6 +130,7 @@
             // SuppNameLbl
             // 
             this.SuppNameLbl.AutoSize = true;
+            this.SuppNameLbl.ForeColor = System.Drawing.Color.Black;
             this.SuppNameLbl.Location = new System.Drawing.Point(11, 155);
             this.SuppNameLbl.Name = "SuppNameLbl";
             this.SuppNameLbl.Size = new System.Drawing.Size(181, 20);
@@ -140,6 +147,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(7, 212);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 20);
@@ -163,6 +171,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(7, 268);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 20);
@@ -179,6 +188,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(7, 324);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 20);
@@ -195,6 +205,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(7, 379);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 20);
@@ -211,6 +222,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(7, 436);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(45, 20);
@@ -292,6 +304,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(7, 492);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(49, 20);
@@ -329,14 +342,14 @@
             this.SupplierdataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.SupplierdataGridView.BackgroundColor = System.Drawing.Color.White;
             this.SupplierdataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.SupplierdataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.SupplierdataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.SupplierdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.SupplierdataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SupplierIDGV,
@@ -355,7 +368,7 @@
             this.SupplierdataGridView.RowHeadersWidth = 51;
             this.SupplierdataGridView.RowTemplate.Height = 24;
             this.SupplierdataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.SupplierdataGridView.Size = new System.Drawing.Size(1046, 626);
+            this.SupplierdataGridView.Size = new System.Drawing.Size(1050, 599);
             this.SupplierdataGridView.TabIndex = 5;
             this.SupplierdataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SupplierdataGridView_CellClick);
             // 
@@ -404,9 +417,9 @@
             // 
             // TinGV
             // 
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = "0";
-            this.TinGV.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = "0";
+            this.TinGV.DefaultCellStyle = dataGridViewCellStyle4;
             this.TinGV.HeaderText = "TIN #";
             this.TinGV.MinimumWidth = 6;
             this.TinGV.Name = "TinGV";
@@ -423,13 +436,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1327, 743);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
+            this.ClientSize = new System.Drawing.Size(1330, 718);
             this.Name = "Suppliers";
             this.Text = "Suppliers";
             this.leftPanel.ResumeLayout(false);
             this.leftPanel.PerformLayout();
             this.rightPanel.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SupplierdataGridView)).EndInit();
             this.ResumeLayout(false);
 

@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fILEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             MDI.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            MDI.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eXITToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            MDI.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,66 +41,64 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fILEToolStripMenuItem});
+            this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1226, 30);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "myMenu";
+            this.menuStrip1.Size = new System.Drawing.Size(1330, 28);
+            this.menuStrip1.TabIndex = 0;
             // 
-            // fILEToolStripMenuItem
+            // fileToolStripMenuItem
             // 
-            this.fILEToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             MDI.homeToolStripMenuItem,
             this.settingsToolStripMenuItem,
-            MDI.logOutToolStripMenuItem,
-            this.eXITToolStripMenuItem});
-            this.fILEToolStripMenuItem.Name = "fILEToolStripMenuItem";
-            this.fILEToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
-            this.fILEToolStripMenuItem.Text = "FILE";
+            MDI.logoutToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Text = "File";
             // 
             // homeToolStripMenuItem
             // 
             MDI.homeToolStripMenuItem.Enabled = false;
             MDI.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
             MDI.homeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
-            MDI.homeToolStripMenuItem.Size = new System.Drawing.Size(195, 26);
+            MDI.homeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             MDI.homeToolStripMenuItem.Text = "Home";
             MDI.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(195, 26);
+            this.settingsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
-            // logOutToolStripMenuItem
+            // logoutToolStripMenuItem
             // 
-            MDI.logOutToolStripMenuItem.Enabled = false;
-            MDI.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            MDI.logOutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            MDI.logOutToolStripMenuItem.Size = new System.Drawing.Size(195, 26);
-            MDI.logOutToolStripMenuItem.Text = "Logout";
-            MDI.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
+            MDI.logoutToolStripMenuItem.Enabled = false;
+            MDI.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            MDI.logoutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
+            MDI.logoutToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            MDI.logoutToolStripMenuItem.Text = "Logout";
+            MDI.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
-            // eXITToolStripMenuItem
+            // exitToolStripMenuItem
             // 
-            this.eXITToolStripMenuItem.Name = "eXITToolStripMenuItem";
-            this.eXITToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.eXITToolStripMenuItem.Size = new System.Drawing.Size(195, 26);
-            this.eXITToolStripMenuItem.Text = "EXIT";
-            this.eXITToolStripMenuItem.Click += new System.EventHandler(this.eXITToolStripMenuItem_Click);
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // MDI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1226, 701);
+            this.ClientSize = new System.Drawing.Size(1330, 718);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IsMdiContainer = true;
@@ -119,11 +117,11 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem eXITToolStripMenuItem;
-        public  System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem fILEToolStripMenuItem;
-        public static System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
-        public static  System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        public static System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        public static System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
     }
 }
 

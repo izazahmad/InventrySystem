@@ -23,28 +23,10 @@ namespace InventrySystem
             base.EditBtn.Enabled = false;
             base.SaveBtn.Enabled = false;
             base.DeleteBtn.Enabled = false;
+            groupBox1.Visible = false;
 
         }
-        public override void AddBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-        public override void EditBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-        public override void SaveBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-        public override void DeleteBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-        public override void SearchTxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
         retrieval r = new retrieval();
         public override void ViewBtn_Click(object sender, EventArgs e)
         {

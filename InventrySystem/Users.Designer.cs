@@ -57,20 +57,22 @@
             this.statusErrorLbl = new System.Windows.Forms.Label();
             this.leftPanel.SuspendLayout();
             this.rightPanel.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
             // 
-            this.panel3.Location = new System.Drawing.Point(0, 80);
             this.panel3.Size = new System.Drawing.Size(1094, 56);
-            // 
-            // SearchTxt
-            // 
             // 
             // panel4
             // 
             this.panel4.Size = new System.Drawing.Size(285, 53);
+            // 
+            // backBtn
+            // 
+            this.backBtn.FlatAppearance.BorderSize = 0;
             // 
             // leftPanel
             // 
@@ -92,7 +94,7 @@
             this.leftPanel.Controls.Add(this.phoneErrorLbl);
             this.leftPanel.Controls.Add(this.emailErrorLbl);
             this.leftPanel.Controls.Add(this.statusErrorLbl);
-            this.leftPanel.Size = new System.Drawing.Size(280, 726);
+            this.leftPanel.Size = new System.Drawing.Size(280, 718);
             this.leftPanel.Controls.SetChildIndex(this.statusErrorLbl, 0);
             this.leftPanel.Controls.SetChildIndex(this.emailErrorLbl, 0);
             this.leftPanel.Controls.SetChildIndex(this.phoneErrorLbl, 0);
@@ -117,22 +119,19 @@
             // rightPanel
             // 
             this.rightPanel.Controls.Add(this.dataGridView1);
-            this.rightPanel.Size = new System.Drawing.Size(1094, 726);
+            this.rightPanel.Size = new System.Drawing.Size(1094, 718);
             this.rightPanel.Controls.SetChildIndex(this.panel2, 0);
             this.rightPanel.Controls.SetChildIndex(this.panel3, 0);
             this.rightPanel.Controls.SetChildIndex(this.dataGridView1, 0);
             // 
             // panel2
             // 
-            this.panel2.Size = new System.Drawing.Size(1094, 80);
-            // 
-            // panel1
-            // 
-            this.panel1.Size = new System.Drawing.Size(280, 80);
+            this.panel2.Size = new System.Drawing.Size(1094, 63);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(12, 139);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 20);
@@ -158,6 +157,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(12, 193);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 20);
@@ -175,6 +175,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(12, 247);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(73, 20);
@@ -192,6 +193,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(12, 301);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(145, 20);
@@ -209,6 +211,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(12, 355);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(49, 20);
@@ -300,14 +303,14 @@
             this.PhoneGV,
             this.StatusGV});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 136);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 119);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1094, 590);
+            this.dataGridView1.Size = new System.Drawing.Size(1094, 599);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -365,6 +368,7 @@
             // StatusLbl
             // 
             this.StatusLbl.AutoSize = true;
+            this.StatusLbl.ForeColor = System.Drawing.Color.Black;
             this.StatusLbl.Location = new System.Drawing.Point(13, 415);
             this.StatusLbl.Name = "StatusLbl";
             this.StatusLbl.Size = new System.Drawing.Size(52, 20);
@@ -398,13 +402,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1377, 726);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1374, 718);
+            this.Location = new System.Drawing.Point(0, 0);
             this.Name = "Users";
             this.Text = "Users";
             this.Load += new System.EventHandler(this.Users_Load);
             this.leftPanel.ResumeLayout(false);
             this.leftPanel.PerformLayout();
             this.rightPanel.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

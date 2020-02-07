@@ -12,6 +12,7 @@ using System.Windows.Forms;
 namespace InventrySystem
 {
     public partial class PurchaseInvoiceDetails : Sample2
+
     {
         public PurchaseInvoiceDetails()
         {
@@ -30,6 +31,8 @@ namespace InventrySystem
 
         private void PurchaseInvoiceDetails_Load(object sender, EventArgs e)
         {
+            groupBox1.Visible = false;
+            panel3.Enabled = false;
             PurchasedataGridView.AutoGenerateColumns = false;
             r.getListWithTwoParameters("st_getPurchaseInvoiceList", InvoiceDD, "Company", "ID", "@month", datePicker.Value.Month, "@year", datePicker.Value.Year);
 

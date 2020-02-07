@@ -51,13 +51,13 @@
             // leftPanel
             // 
             this.leftPanel.Controls.Add(this.panel4);
-            this.leftPanel.Size = new System.Drawing.Size(280, 742);
             this.leftPanel.Controls.SetChildIndex(this.panel1, 0);
             this.leftPanel.Controls.SetChildIndex(this.panel4, 0);
             // 
             // rightPanel
             // 
             this.rightPanel.Controls.Add(this.panel3);
+            this.rightPanel.Size = new System.Drawing.Size(1050, 747);
             this.rightPanel.Controls.SetChildIndex(this.panel2, 0);
             this.rightPanel.Controls.SetChildIndex(this.panel3, 0);
             // 
@@ -77,7 +77,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 63);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1046, 56);
+            this.panel3.Size = new System.Drawing.Size(1050, 56);
             this.panel3.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -101,7 +101,7 @@
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1046, 56);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1050, 56);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // DeleteBtn
@@ -228,7 +228,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1326, 742);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
+            this.ClientSize = new System.Drawing.Size(1330, 747);
             this.Name = "Sample2";
             this.Load += new System.EventHandler(this.Sample2_Load);
             this.leftPanel.ResumeLayout(false);

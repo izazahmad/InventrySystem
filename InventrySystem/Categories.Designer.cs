@@ -41,8 +41,14 @@
             this.CatStatusGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.leftPanel.SuspendLayout();
             this.rightPanel.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CatdataGridView)).BeginInit();
             this.SuspendLayout();
+            // 
+            // backBtn
+            // 
+            this.backBtn.FlatAppearance.BorderSize = 0;
             // 
             // leftPanel
             // 
@@ -52,7 +58,7 @@
             this.leftPanel.Controls.Add(this.CatnameTxt);
             this.leftPanel.Controls.Add(this.label4);
             this.leftPanel.Controls.Add(this.CategoryErrorLbl);
-            this.leftPanel.Size = new System.Drawing.Size(280, 759);
+            this.leftPanel.Size = new System.Drawing.Size(280, 719);
             this.leftPanel.Controls.SetChildIndex(this.panel1, 0);
             this.leftPanel.Controls.SetChildIndex(this.CategoryErrorLbl, 0);
             this.leftPanel.Controls.SetChildIndex(this.panel4, 0);
@@ -65,6 +71,7 @@
             // rightPanel
             // 
             this.rightPanel.Controls.Add(this.CatdataGridView);
+            this.rightPanel.Size = new System.Drawing.Size(1050, 719);
             this.rightPanel.Controls.SetChildIndex(this.panel2, 0);
             this.rightPanel.Controls.SetChildIndex(this.panel3, 0);
             this.rightPanel.Controls.SetChildIndex(this.CatdataGridView, 0);
@@ -79,7 +86,8 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(-1, 124);
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(1, 124);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(113, 20);
             this.label4.TabIndex = 17;
@@ -100,7 +108,8 @@
             // cat
             // 
             this.cat.AutoSize = true;
-            this.cat.Location = new System.Drawing.Point(-1, 181);
+            this.cat.ForeColor = System.Drawing.Color.Black;
+            this.cat.Location = new System.Drawing.Point(2, 181);
             this.cat.Name = "cat";
             this.cat.Size = new System.Drawing.Size(75, 20);
             this.cat.TabIndex = 20;
@@ -158,7 +167,7 @@
             this.CatdataGridView.RowHeadersWidth = 51;
             this.CatdataGridView.RowTemplate.Height = 24;
             this.CatdataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.CatdataGridView.Size = new System.Drawing.Size(1046, 626);
+            this.CatdataGridView.Size = new System.Drawing.Size(1050, 600);
             this.CatdataGridView.TabIndex = 4;
             this.CatdataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CatdataGridView_CellClick);
             // 
@@ -188,13 +197,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1331, 759);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
+            this.ClientSize = new System.Drawing.Size(1330, 719);
             this.Name = "Categories";
             this.Text = "Categories";
             this.Load += new System.EventHandler(this.Categories_Load);
             this.leftPanel.ResumeLayout(false);
             this.leftPanel.PerformLayout();
             this.rightPanel.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CatdataGridView)).EndInit();
             this.ResumeLayout(false);
 

@@ -55,6 +55,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.ProductdataGridView)).BeginInit();
             this.SuspendLayout();
             // 
+            // panel3
+            // 
+            this.panel3.Size = new System.Drawing.Size(1046, 56);
+            // 
             // backBtn
             // 
             this.backBtn.FlatAppearance.BorderSize = 0;
@@ -73,7 +77,7 @@
             this.leftPanel.Controls.Add(this.label2);
             this.leftPanel.Controls.Add(this.productErrorLbl);
             this.leftPanel.Controls.Add(this.ExpiryErrorLbl);
-            this.leftPanel.Size = new System.Drawing.Size(280, 752);
+            this.leftPanel.Size = new System.Drawing.Size(280, 718);
             this.leftPanel.Controls.SetChildIndex(this.ExpiryErrorLbl, 0);
             this.leftPanel.Controls.SetChildIndex(this.productErrorLbl, 0);
             this.leftPanel.Controls.SetChildIndex(this.panel1, 0);
@@ -92,14 +96,14 @@
             // rightPanel
             // 
             this.rightPanel.Controls.Add(this.ProductdataGridView);
-            this.rightPanel.Location = new System.Drawing.Point(286, 0);
-            this.rightPanel.Size = new System.Drawing.Size(1046, 752);
+            this.rightPanel.Size = new System.Drawing.Size(1046, 718);
             this.rightPanel.Controls.SetChildIndex(this.panel2, 0);
             this.rightPanel.Controls.SetChildIndex(this.panel3, 0);
             this.rightPanel.Controls.SetChildIndex(this.ProductdataGridView, 0);
             // 
             // panel2
             // 
+            this.panel2.Size = new System.Drawing.Size(1046, 63);
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label2
@@ -252,7 +256,7 @@
             this.ProductdataGridView.RowHeadersWidth = 51;
             this.ProductdataGridView.RowTemplate.Height = 24;
             this.ProductdataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ProductdataGridView.Size = new System.Drawing.Size(1046, 633);
+            this.ProductdataGridView.Size = new System.Drawing.Size(1046, 599);
             this.ProductdataGridView.TabIndex = 4;
             this.ProductdataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProductdataGridView_CellClick);
             // 
@@ -304,7 +308,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1333, 752);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
+            this.ClientSize = new System.Drawing.Size(1330, 718);
             this.Name = "Products";
             this.Text = "Products";
             this.Load += new System.EventHandler(this.Products_Load);

@@ -31,8 +31,18 @@ namespace InventrySystem
                     DialogResult dr = MessageBox.Show("Settings Saved Successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (dr == DialogResult.OK)
                     {
-                        Login log = new Login();
-                        MainClass.showWindow(log, this, MDI.ActiveForm);
+                        bool admincheck = retrieval.checkAdminExist();
+                        if (admincheck==true)
+                        {
+                            Login log = new Login();
+                            MainClass.showWindow(log, this, MDI.ActiveForm);
+                        }
+                        else
+                        {
+                            AdminEntry adm = new AdminEntry();
+                            MainClass.showWindow(adm, this, MDI.ActiveForm);
+                        }
+                        
                     }
                 }
                 else

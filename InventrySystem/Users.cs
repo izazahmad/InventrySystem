@@ -111,7 +111,7 @@ namespace InventrySystem
                     
                     Insertion i = new Insertion();
 
-                    i.insertUser(nameTxt.Text, usernameTxt.Text, passTxt.Text, emailTxt.Text, phoneTxt.Text,stat);
+                    i.insertUser(nameTxt.Text, usernameTxt.Text, passTxt.Text, emailTxt.Text, phoneTxt.Text,stat,2);
                     r.showUsers(dataGridView1, userIDGV, NameGV, UserNameGV, PassGV, EmailGV, PhoneGV, StatusGV);
                     MainClass.disable_reset(leftPanel);
 

@@ -39,8 +39,27 @@ namespace InventrySystem
         {
             //MDI mdi = new MDI();
             UserDisplayLbl.Text = retrieval.EMP_NAME;
-            MDI.logOutToolStripMenuItem.Enabled = true;
+            MDI.logoutToolStripMenuItem.Enabled = true;
             MDI.homeToolStripMenuItem.Enabled = true;
+            int admin = retrieval.Role;
+            if (admin==1)
+            {
+                StockBtn.Enabled = true;
+                StockBtn.Visible = true;
+                PurchaseInvoiceBtn.Enabled = true;
+                PurchaseInvoiceBtn.Visible = true;
+                productBtn.Enabled = true;
+                productBtn.Visible = true;
+                CatogoryBtn.Enabled = true;
+                CatogoryBtn.Visible = true;
+                SupplierBtn.Enabled = true;
+                SupplierBtn.Visible = true;
+                proPricingBtn.Enabled = true;
+                proPricingBtn.Visible = true;
+                userBtn.Enabled = true;
+                userBtn.Visible = true;
+
+            }
             //mdi.Controls["logOutToolStripMenuItem"].Enabled = true;
             //MDI.mdiObj.homeToolStripMenuItem.Enabled = true;
 

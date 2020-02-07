@@ -76,7 +76,7 @@
             this.panel4.Controls.Add(this.panel6);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 63);
-            this.panel4.Size = new System.Drawing.Size(280, 114);
+            this.panel4.Size = new System.Drawing.Size(278, 114);
             // 
             // backBtn
             // 
@@ -86,6 +86,7 @@
             // 
             this.leftPanel.Controls.Add(this.panel7);
             this.leftPanel.Controls.Add(this.PayGroupBox);
+            this.leftPanel.Size = new System.Drawing.Size(280, 778);
             this.leftPanel.Controls.SetChildIndex(this.panel1, 0);
             this.leftPanel.Controls.SetChildIndex(this.panel4, 0);
             this.leftPanel.Controls.SetChildIndex(this.PayGroupBox, 0);
@@ -95,14 +96,11 @@
             // 
             this.rightPanel.Controls.Add(this.panel5);
             this.rightPanel.Controls.Add(this.SalesdataGridView);
+            this.rightPanel.Size = new System.Drawing.Size(1050, 778);
             this.rightPanel.Controls.SetChildIndex(this.panel2, 0);
             this.rightPanel.Controls.SetChildIndex(this.panel3, 0);
             this.rightPanel.Controls.SetChildIndex(this.SalesdataGridView, 0);
             this.rightPanel.Controls.SetChildIndex(this.panel5, 0);
-            // 
-            // UserDisplayLbl
-            // 
-            this.UserDisplayLbl.Text = "";
             // 
             // BarcodeTxt
             // 
@@ -145,7 +143,7 @@
             this.SalesdataGridView.RowHeadersWidth = 51;
             this.SalesdataGridView.RowTemplate.Height = 24;
             this.SalesdataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.SalesdataGridView.Size = new System.Drawing.Size(1046, 549);
+            this.SalesdataGridView.Size = new System.Drawing.Size(1050, 549);
             this.SalesdataGridView.TabIndex = 6;
             this.SalesdataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SalesdataGridView_CellClick);
             // 
@@ -211,7 +209,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 668);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1046, 77);
+            this.panel5.Size = new System.Drawing.Size(1050, 110);
             this.panel5.TabIndex = 7;
             // 
             // tableLayoutPanel2
@@ -226,7 +224,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1046, 77);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1050, 110);
             this.tableLayoutPanel2.TabIndex = 14;
             // 
             // label9
@@ -235,7 +233,7 @@
             this.label9.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(3, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(679, 77);
+            this.label9.Size = new System.Drawing.Size(681, 110);
             this.label9.TabIndex = 12;
             this.label9.Text = "Gross Total";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -244,9 +242,9 @@
             // 
             this.GrossLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GrossLbl.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GrossLbl.Location = new System.Drawing.Point(688, 0);
+            this.GrossLbl.Location = new System.Drawing.Point(690, 0);
             this.GrossLbl.Name = "GrossLbl";
-            this.GrossLbl.Size = new System.Drawing.Size(355, 77);
+            this.GrossLbl.Size = new System.Drawing.Size(357, 110);
             this.GrossLbl.TabIndex = 13;
             this.GrossLbl.Text = "0.00";
             this.GrossLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -280,10 +278,10 @@
             this.PayGroupBox.Controls.Add(this.label3);
             this.PayGroupBox.Controls.Add(this.payBtn);
             this.PayGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PayGroupBox.ForeColor = System.Drawing.SystemColors.Window;
+            this.PayGroupBox.ForeColor = System.Drawing.Color.Black;
             this.PayGroupBox.Location = new System.Drawing.Point(0, 177);
             this.PayGroupBox.Name = "PayGroupBox";
-            this.PayGroupBox.Size = new System.Drawing.Size(280, 626);
+            this.PayGroupBox.Size = new System.Drawing.Size(278, 626);
             this.PayGroupBox.TabIndex = 5;
             this.PayGroupBox.TabStop = false;
             this.PayGroupBox.Text = "Payments";
@@ -392,6 +390,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(8, 23);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 20);
@@ -403,12 +402,13 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 803);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(280, 39);
+            this.panel7.Size = new System.Drawing.Size(278, 39);
             this.panel7.TabIndex = 6;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(12, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(102, 20);
@@ -422,14 +422,15 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(280, 108);
+            this.panel6.Size = new System.Drawing.Size(278, 108);
             this.panel6.TabIndex = 1;
             // 
             // Sales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1329, 742);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1339, 778);
             this.Name = "Sales";
             this.Text = "Sales";
             this.Load += new System.EventHandler(this.Sales_Load);

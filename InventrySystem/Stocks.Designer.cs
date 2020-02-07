@@ -56,11 +56,12 @@
             // 
             // leftPanel
             // 
-            this.leftPanel.Size = new System.Drawing.Size(280, 745);
+            this.leftPanel.Size = new System.Drawing.Size(280, 718);
             // 
             // rightPanel
             // 
             this.rightPanel.Controls.Add(this.StockdataGridView);
+            this.rightPanel.Size = new System.Drawing.Size(1050, 718);
             this.rightPanel.Controls.SetChildIndex(this.panel2, 0);
             this.rightPanel.Controls.SetChildIndex(this.panel3, 0);
             this.rightPanel.Controls.SetChildIndex(this.StockdataGridView, 0);
@@ -100,7 +101,7 @@
             this.StockdataGridView.RowHeadersWidth = 51;
             this.StockdataGridView.RowTemplate.Height = 24;
             this.StockdataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.StockdataGridView.Size = new System.Drawing.Size(1046, 626);
+            this.StockdataGridView.Size = new System.Drawing.Size(1050, 599);
             this.StockdataGridView.TabIndex = 5;
             // 
             // ProductIDGV
@@ -187,7 +188,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1334, 745);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
+            this.ClientSize = new System.Drawing.Size(1330, 718);
             this.Name = "Stocks";
             this.Text = "Stocks";
             this.Load += new System.EventHandler(this.Stocks_Load);

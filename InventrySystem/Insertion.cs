@@ -14,7 +14,7 @@ namespace InventrySystem
     {
         retrieval r = new retrieval();
         Updation u = new Updation();
-        public void insertUser(string name, string username, string pass, string email, string phone, Int16 status)
+        public void insertUser(string name, string username, string pass, string email, string phone, Int16 status,Int16 role)
         {
             try
             {
@@ -26,17 +26,19 @@ namespace InventrySystem
                 cmd.Parameters.AddWithValue("@phone",phone);
                 cmd.Parameters.AddWithValue("@email",email);
                 cmd.Parameters.AddWithValue("@status", status);
+                cmd.Parameters.AddWithValue("@Role", role);
 
                 MainClass.con.Open();
                 cmd.ExecuteNonQuery();
                 MainClass.con.Close();
-                MainClass.ShowMSG(name+" added to the system successfully", "Success...","Success");
+                MainClass.ShowMSG(name+" as an Admin added to the system successfully", "Success","Success");
+                
 
             }
             catch (Exception ex)
             {
                 MainClass.con.Close();
-                MainClass.ShowMSG(ex.Message, "Error...", "Error");
+                MainClass.ShowMSG(ex.Message, "Error", "Error");
             }
         }
 
@@ -46,20 +48,18 @@ namespace InventrySystem
             {
                 SqlCommand cmd = new SqlCommand("st_insertCategory", MainClass.con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@name", name);
-               
+                cmd.Parameters.AddWithValue("@name", name);               
                 cmd.Parameters.AddWithValue("@isActive", status);
-
                 MainClass.con.Open();
                 cmd.ExecuteNonQuery();
                 MainClass.con.Close();
-                MainClass.ShowMSG(name + " added to the system successfully", "Success...", "Success");
+                MainClass.ShowMSG(name + " added to the system successfully", "Success", "Success");
 
             }
             catch (Exception ex)
             {
                 MainClass.con.Close();
-                MainClass.ShowMSG(ex.Message, "Error...", "Error");
+                MainClass.ShowMSG(ex.Message, "Error", "Error");
             }
         }
         public void insertProduct(string name, string barcode, int categoryId, DateTime? expiry = null)
@@ -149,7 +149,6 @@ namespace InventrySystem
                     cmd.Parameters.AddWithValue("@date", date);
                     cmd.Parameters.AddWithValue("@doneby", doneby);
                     cmd.Parameters.AddWithValue("@suppID", suppID);
-
                     MainClass.con.Open();
                     cmd.ExecuteNonQuery();
                     cmd.CommandText = "st_getLastPurchaseID";
@@ -179,7 +178,7 @@ namespace InventrySystem
                     cmd.Parameters.AddWithValue("@totPrice", totPrice);
                 
                 MainClass.con.Open();
-               pidCount= cmd.ExecuteNonQuery();
+                pidCount= cmd.ExecuteNonQuery();
                 MainClass.con.Close();
 
             }

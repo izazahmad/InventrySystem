@@ -25,6 +25,10 @@ namespace InventrySystem
 
         private void Sales_Load(object sender, EventArgs e)
         {
+            groupBox1.Visible = false;
+            AddBtn.Enabled = false;
+            EditBtn.Enabled = false;
+            DeleteBtn.Enabled = false;
 
         }
         public override void ViewBtn_Click(object sender, EventArgs e)

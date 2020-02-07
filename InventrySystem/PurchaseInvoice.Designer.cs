@@ -68,6 +68,10 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
+            // panel3
+            // 
+            this.panel3.Size = new System.Drawing.Size(1046, 56);
+            // 
             // backBtn
             // 
             this.backBtn.FlatAppearance.BorderSize = 0;
@@ -92,7 +96,7 @@
             this.leftPanel.Controls.Add(this.ProductErrorLbl);
             this.leftPanel.Controls.Add(this.PerUnitErrorLbl);
             this.leftPanel.Controls.Add(this.QuantityErrorLbl);
-            this.leftPanel.Size = new System.Drawing.Size(280, 769);
+            this.leftPanel.Size = new System.Drawing.Size(280, 748);
             this.leftPanel.Controls.SetChildIndex(this.QuantityErrorLbl, 0);
             this.leftPanel.Controls.SetChildIndex(this.PerUnitErrorLbl, 0);
             this.leftPanel.Controls.SetChildIndex(this.ProductErrorLbl, 0);
@@ -118,11 +122,15 @@
             // 
             this.rightPanel.Controls.Add(this.panel5);
             this.rightPanel.Controls.Add(this.PurchasedataGridView);
-            this.rightPanel.Size = new System.Drawing.Size(1046, 769);
+            this.rightPanel.Size = new System.Drawing.Size(1046, 748);
             this.rightPanel.Controls.SetChildIndex(this.panel2, 0);
             this.rightPanel.Controls.SetChildIndex(this.panel3, 0);
             this.rightPanel.Controls.SetChildIndex(this.PurchasedataGridView, 0);
             this.rightPanel.Controls.SetChildIndex(this.panel5, 0);
+            // 
+            // panel2
+            // 
+            this.panel2.Size = new System.Drawing.Size(1046, 63);
             // 
             // panel1
             // 
@@ -131,6 +139,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(4, 123);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(108, 20);
@@ -148,6 +157,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(4, 231);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 20);
@@ -157,6 +167,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(4, 178);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 20);
@@ -191,6 +202,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(4, 341);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 20);
@@ -208,6 +220,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(4, 285);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(96, 20);
@@ -303,6 +316,7 @@
             this.CartBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CartBtn.FlatAppearance.BorderSize = 2;
             this.CartBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CartBtn.ForeColor = System.Drawing.Color.Black;
             this.CartBtn.Location = new System.Drawing.Point(8, 407);
             this.CartBtn.Name = "CartBtn";
             this.CartBtn.Size = new System.Drawing.Size(254, 38);
@@ -314,6 +328,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(4, 463);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(99, 20);
@@ -324,6 +339,7 @@
             // 
             this.TotLbl.AutoSize = true;
             this.TotLbl.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotLbl.ForeColor = System.Drawing.Color.Black;
             this.TotLbl.Location = new System.Drawing.Point(12, 499);
             this.TotLbl.Name = "TotLbl";
             this.TotLbl.Size = new System.Drawing.Size(81, 46);
@@ -336,7 +352,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 668);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1046, 101);
+            this.panel5.Size = new System.Drawing.Size(1046, 80);
             this.panel5.TabIndex = 6;
             // 
             // tableLayoutPanel2
@@ -351,7 +367,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1046, 101);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1046, 80);
             this.tableLayoutPanel2.TabIndex = 14;
             // 
             // label9
@@ -360,7 +376,7 @@
             this.label9.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(3, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(679, 101);
+            this.label9.Size = new System.Drawing.Size(679, 80);
             this.label9.TabIndex = 12;
             this.label9.Text = "Gross Total";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -371,7 +387,7 @@
             this.GrossLbl.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GrossLbl.Location = new System.Drawing.Point(688, 0);
             this.GrossLbl.Name = "GrossLbl";
-            this.GrossLbl.Size = new System.Drawing.Size(355, 101);
+            this.GrossLbl.Size = new System.Drawing.Size(355, 80);
             this.GrossLbl.TabIndex = 13;
             this.GrossLbl.Text = "0.00";
             this.GrossLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -440,7 +456,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1323, 769);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
+            this.ClientSize = new System.Drawing.Size(1330, 748);
             this.Name = "PurchaseInvoice";
             this.Text = "PurchaseInvoice";
             this.Load += new System.EventHandler(this.PurchaseInvoice_Load);

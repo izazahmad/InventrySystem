@@ -27,6 +27,9 @@ namespace InventrySystem
         }
         private void PurchaseInvoice_Load(object sender, EventArgs e)
         {
+            groupBox1.Visible = false;
+            EditBtn.Enabled=false;
+            DeleteBtn.Enabled = false;
             MainClass.disable_reset(leftPanel);
             r.getSupplierList("st_getSupplierList", SupplierDD, "Company", "ID");
 

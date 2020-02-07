@@ -13,6 +13,101 @@ namespace InventrySystem
 {
     class retrieval
     {
+        public static int USER_ID
+        {
+            get;
+            private set;
+        }
+        public static string EMP_NAME
+        {
+            get;
+            private set;
+        }
+        public static int Role
+        {
+            get;
+            private set;
+        }
+        private static string user_name, pass_word;
+        private static bool checkLogin;
+        public static bool getUserDetails(string username, string password)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("st_getUserDetails", MainClass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@user", username);
+                cmd.Parameters.AddWithValue("@pass", password);
+                MainClass.con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    checkLogin = true;
+                    while (dr.Read())
+                    {
+                        USER_ID = Convert.ToInt32(dr["ID"].ToString());
+                        EMP_NAME = dr["Name"].ToString();
+                        Role =Convert.ToInt32(dr["Role"].ToString());
+                        user_name = dr["Username"].ToString();
+                        pass_word = dr["Password"].ToString();
+                    }
+                }
+                else
+                {
+                    checkLogin = false;
+                    if (username != null && password != null)
+                    {
+                        if (user_name != username && pass_word == password)
+                        {
+                            MainClass.ShowMSG("Invalid Username", "Error", "Error");
+                        }
+                        else if (user_name == username && pass_word != password)
+                        {
+                            MainClass.ShowMSG("Invalid Password", "Error", "Error");
+                        }
+                        else if (user_name != username && pass_word != password)
+                        {
+                            MainClass.ShowMSG("Invalid Username and Password", "Error", "Error");
+                        }
+                    }
+                }
+                MainClass.con.Close();
+
+            }
+            catch (Exception ex)
+            {
+
+                MainClass.con.Close();
+                MainClass.ShowMSG(ex.Message, "Error ", "Error");
+            }
+            return checkLogin;
+        }
+        private static bool checkAdmin;
+        public static bool checkAdminExist()
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("st_checkAdminExistance", MainClass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                MainClass.con.Open();
+                int userExist = (int)cmd.ExecuteScalar();
+                if (userExist>0)
+                {
+                    checkAdmin = true;
+                }
+                else
+                {
+                    checkAdmin = false;
+                }
+                MainClass.con.Close();
+            }
+            catch (Exception ex)
+            {
+                MainClass.con.Close();
+                MainClass.ShowMSG(ex.Message, "Error ", "Error");
+            }
+            return checkAdmin;
+        }
         public void showUsers(DataGridView gv,DataGridViewColumn userIDGV, DataGridViewColumn nameGV, DataGridViewColumn usernameGV, DataGridViewColumn passGV, DataGridViewColumn emailGV, DataGridViewColumn phoneGV, DataGridViewColumn statusGV,string data=null)
         {
             try
@@ -269,30 +364,6 @@ namespace InventrySystem
             }
             return productStockCount;
         }
-        //object proQuan = 0;
-        //public object getProductQuantityBysalIDProID(Int64 proID, Int64 salID)
-        //{
-        //    try
-        //    {
-        //        SqlCommand cmd = new SqlCommand("st_getQuantityFromSD", MainClass.con);
-        //            cmd.CommandType = CommandType.StoredProcedure;
-        //            cmd.Parameters.AddWithValue("@saleID", salID);
-        //            cmd.Parameters.AddWithValue("@proID", proID);
-        //            MainClass.con.Open();
-               
-
-        //        productStockCount = cmd.ExecuteScalar();
-        //        MainClass.con.Close();
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        MainClass.con.Close();
-        //        MainClass.ShowMSG(ex.Message, "Error", "Error");
-        //    }
-        //    return productStockCount;
-        //}
         private object productSellPrice = 0;
         public object getProductSellPrice(int proID)
         {
@@ -358,16 +429,7 @@ namespace InventrySystem
                 MainClass.ShowMSG(ex.Message, "Error...", "Error");
             }
         }
-        public static int USER_ID 
-        { 
-            get; 
-            private set; 
-        }
-        public static string EMP_NAME
-        {
-            get;
-            private set;
-        }
+       
         public void showReport(ReportDocument rd,CrystalReportViewer crv,string proc, string reportFile, string param=null, object val=null)
         {
             try
@@ -396,59 +458,7 @@ namespace InventrySystem
                 MainClass.ShowMSG(ex.Message, "Error ", "Error");
             }
         }
-        private static string user_name, pass_word;
-        private static bool checkLogin;
-        public static bool getUserDetails(string username, string password)
-        {
-            try
-            {
-                SqlCommand cmd = new SqlCommand("st_getUserDetails", MainClass.con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@user",username);
-                cmd.Parameters.AddWithValue("@pass",password);
-                MainClass.con.Open();
-                SqlDataReader dr = cmd.ExecuteReader();
-                if(dr.HasRows)
-                {
-                    checkLogin = true;
-                    while(dr.Read())
-                    {
-                        USER_ID = Convert.ToInt32(dr["ID"].ToString());
-                        EMP_NAME = dr["Name"].ToString();
-                        user_name = dr["Username"].ToString();
-                        pass_word = dr["Password"].ToString();
-                    }
-                }
-                else
-                {
-                    checkLogin = false;
-                    if(username!=null && password !=null)
-                    {
-                        if(user_name != username && pass_word == password)
-                        {
-                            MainClass.ShowMSG("Invalid Username", "Error", "Error");
-                        }
-                        else if (user_name == username && pass_word != password)
-                        {
-                            MainClass.ShowMSG("Invalid Password", "Error", "Error");
-                        }
-                        else if (user_name != username && pass_word != password)
-                        {
-                            MainClass.ShowMSG("Invalid Username and Password", "Error", "Error");
-                        }
-                    }
-                }
-                MainClass.con.Close();
-
-            }
-            catch (Exception ex)
-            {
-
-                MainClass.con.Close();
-                MainClass.ShowMSG(ex.Message, "Error ", "Error");
-            }
-            return checkLogin;
-        }
+        
         public void showSupplier(DataGridView gv, DataGridViewColumn SupplierIDGV,DataGridViewColumn CompanyGV, DataGridViewColumn ContactPersonGV, DataGridViewColumn Phone1GV, DataGridViewColumn Phone2GV, DataGridViewColumn AddressGV, DataGridViewColumn TinGV, DataGridViewColumn StatusGV, string data = null)
         {
             try
